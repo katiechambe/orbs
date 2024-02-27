@@ -58,13 +58,15 @@ def save_orbitdata(snapshot):
         merge_flag = np.zeros((numpairs),dtype="bool")
         merge_snap, infall_snap = np.zeros((2,numpairs), dtype="int32")
         merge_redshift, infall_redshift = np.zeros((2,numpairs))
-        pairkey = np.zeros(numpairs,dtype="float64")
+        # pairkey = np.zeros(numpairs,dtype="str")
+        pairkey = []
 
         # 2D (per pair per snapshot):
         seps = np.zeros((numpairs, len(full_snaps)))
         seps_comov = np.zeros((numpairs, len(full_snaps)))
         vels = np.zeros((numpairs, len(full_snaps)))
         seps.fill(np.NaN)
+        seps_comov.fill(np.NaN)
         vels.fill(np.NaN)
         group_flag = np.zeros((numpairs,len(full_snaps)),dtype="bool")
         pos1, pos2 = np.zeros((2, numpairs, len(full_snaps), 3))
@@ -172,7 +174,8 @@ def save_orbitdata(snapshot):
             # ----------------------------------------------------
             # first attempt at pairkey definition:
             # combine the last 6 digits of each of the first subhaloID from the primary and secondary tree
-            pairkey[ind] = str(tree_primary['SubhaloID'][-1])[-6:]+str(tree_secondary['SubhaloID'][-1])[-6:]
+            pk_string = (str(tree_primary['SubhaloID'][-1])+str(tree_secondary['SubhaloID'][-1]))
+            pairkey.append(pk_string.encode("utf-8"))
         
         # ----------------------------------------------------
         # make data structure and save to hdf5
@@ -232,13 +235,21 @@ def save_orbitdata(snapshot):
                     }
 
         for key, val in collection.items():
-            print(key)
-            valv = np.array(val)
-            dset = f.create_dataset(f'/{key}', 
+
+            if key=='PairKey':
+                dset = f.create_dataset(f'/{key}',
+                                        shape=(len(pairkey),),
+                                        dtype=h5py.string_dtype(encoding='utf-8', length=None))
+                dset.attrs[key] = info_dict[key]
+                dset[:]=np.array(pairkey)
+            else:
+                print(key)
+                valv = np.array(val)
+                dset = f.create_dataset(f'/{key}', 
                                     shape=valv.shape,
                                     dtype=valv.dtype)
-            dset.attrs[key] = info_dict[key]
-            dset[:] = valv
+                dset.attrs[key] = info_dict[key]
+                dset[:] = valv
 
         f.close()    
         print("Saved orbit data for snapshot ",snapshot)
