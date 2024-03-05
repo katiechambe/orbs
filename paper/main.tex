@@ -1,0 +1,238 @@
+\documentclass[twocolumn]{aastex631}
+
+% Packages
+\usepackage{microtype}  % ALWAYS!
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{soul}
+
+\definecolor{pink}{RGB}{232,132,161}
+\definecolor{yellow}{RGB}{255,213,0}
+
+\newcommand{\kc}[1]{\textcolor{yellow}{\textbf{kc: #1}} }
+\newcommand\shadetext[2][]{%
+  \setbox0=\hbox{{\special{pdf:literal 7 Tr }#2}}%
+  \tikz[baseline=0]\path [#1] \pgfextra{\rlap{\copy0}} (0,-\dp0) rectangle (\wd0,\ht0);% 
+  }
+\newcommand{\gb}[1]{\shadetext[left color=blue, right color=red, middle color=lime, shading angle=45]{\textbf{g: #1}} }
+% \newcommand{\ecite}[1]{\textcolor{pink}{\textbf{: #1}} }
+% \newcommand{\e}[1]{\textcolor{yellow}{\textbf{: #1}} }
+
+\newcommand{\remove}[1]{\textcolor{red}{#1}}
+\newcommand{\add}[1]{\textcolor{green}{#1}}
+
+\newcommand{\mlg}{\ensuremath{M_{\rm LG}}}
+\newcommand{\mmto}{\ensuremath{M_{\rm M31}}}
+\newcommand{\mmw}{\ensuremath{M_{\rm MW}}}
+\newcommand{\vtan}{\ensuremath{v_\textrm{tan}}}
+\newcommand{\vrad}{\ensuremath{v_\textrm{rad}}}
+\newcommand{\ms}[1]{\ensuremath{M_{*{#1}}}}
+\newcommand{\reflabel}[1]{\ensuremath{^{\mbox{\scriptsize{#1}}}}}
+\newcommand{\scsep}{\ensuremath{\rm r_{sep}/r_{vir}}}
+\newcommand{\scvel}{\ensuremath{\rm v_{rel}/v_{vir}}}
+%\newcommand{\lsubcat}{\textit{Low Mass Subhalo Catalog}}
+%\newcommand{\hsubcat}{\textit{High Mass Subhalo Catalog}}
+\newcommand{\paircat}{\textit{Full Pair Catalog}}
+\newcommand{\Rvir}{\ensuremath{\rm R_{vir}}}
+
+% Style tweaks
+% \renewcommand{\twocolumngrid}{\onecolumngrid}
+% \setlength{\parindent}{1.1\baselineskip}
+% \sloppy\sloppypar\raggedbottom\frenchspacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\shorttitle{Pair fractions in TNG100}
+\shortauthors{Chamberlain et al.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{./}{../plots/}}
+% \input{math_definitions.tex}
+
+% Affiliations
+\newcommand{\affuofa}{University of Arizona, 933 N. Cherry Ave,
+    Tucson, AZ 85721, USA}
+
+\newcommand{\affuofu}{Department of Astronomy, University of Utah, Salt Lake City, UT 84112, USA}
+
+\begin{document}
+
+\title{Orbits
+}
+
+\author[0000-0001-8765-8670]{Katie~Chamberlain}
+\affiliation{\affuofa}
+
+\author[0000-0002-9820-1219]{Ekta~Patel}
+\thanks{Hubble Fellow}\affiliation{\affuofu}
+
+
+\author[0000-0003-0715-2173]{Gurtina Besla}
+\affiliation{\affuofa}
+
+
+
+
+\author{others}
+
+\begin{abstract}
+
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} \label{sec:intro}
+
+$z=1.5$ corresponds to snapshot \#40 in the TNG sim
+% Introduce RG15, Lotz, etc.
+
+
+%%% OUTLINE
+\section{Sample Data}
+%recap last paper and mention which data sample we narrow down to (low mass major pairs only) -- give examples of orbits
+
+\subsection{Isolated Pairs}
+We utilize the \paircat{} of isolated low and high mass pairs described in ~\citet{Chamberlain2024}. 
+In summary, the \paircat{} is a collection of isolated subhalo pairs at each snapshot of the highest resolution run of the $(110.7\,\Mpc)^3$ volume IllustrisTNG simulation, TNG100-1 (hereafter TNG100). 
+
+Stellar masses were assigned to Abundance matching 
+For the purposes of our study, we will only be using the 
+
+
+\subsubsection{brief recap of last paper}
+\texttt{SUBLINK} algorithm~\citep{RG2015}
+
+\subsubsection{Assumption of Isolation}
+% justify stuff from last paper
+
+\subsection{Mergers and Orbits}
+\subsubsection{Calculation of merger fraction of total sample}
+Plot #1: Merger fraction either before or after orbits
+\subsubsection{Pulling Orbits}
+Orbital data for each pair from the \paircat{} was collected by following each subhalo of the pair both forwards and backwards in time via the \texttt{SUBLINK} algorithm~\citep{RG2015} merger trees.
+
+% interpolation
+Plot #2: Orbits plot
+
+
+
+
+\section{Results - The Mass Dependence of Merger Timescales}
+% The point of this subsection: to show that using the same "observability times" for pairs selected in the same physical separation bins wouldn't work, and that the selection criteria for close pairs should either be scaled by size of halo, OR that timescales for ow mass and high mass would be different by a lot for the same physical separation choices. (Maybe come up with a functional form to relate the two? )
+\subsection{explain subset of data used for this section}
+\subsection{Cumulative time}
+Plot #3: Cumulative time example calculation plot
+\subsection{"time til merger" for selected snapshots for LvH. }
+Maybe also (distribution plot 2D hist? as function of selected separation)
+\subsection{Cumulative distributions}
+\subsubsection{Physical}
+Plot #4: Cumulative distribution, low mass vs. high mass
+\subsubsection{Scaled}
+Plot #5: Cumulative distribution in scaled units, low mass vs. high mass
+Plot #3-5?: the cumulative with spread for low vs. high mass
+
+
+\section{Results - The Redshift Dependence of Merger Timescales}
+% point: to show that the amount of time that pairs spend in the same physical separation bins changes by a significant amount between high and low redshift. In order to do pair fraction-merger rate studies appropriately, use Tobs(z), as suggested in Snyder 2017.  
+\subsection{explain subset of data used for this section}
+\subsection{explain how data in the plot was calculated}
+\subsection{Redshift dependence}
+Plot #6: Redshift dependence for low and high mass pairs
+\subsection{Best fit redshift dependence?/scaling?}
+Is $(1+z)^-2$ the best fit? 
+
+
+
+% \section{Discussion}
+% \subsection{Merger Rates for Dwarf Pairs}
+% % - What combination of values best reproduces the merger fraction acquired from the sims?
+% % Do you need the scale of merger probability as in Ventou to get the match?
+% % Vicente & Casteels 2014 comparison (pair fractions plot)
+% \subsection{Pairs of Dwarfs That Do Not Merge}
+% % can talk about the unmerged fraction merger rates here
+% \subsection{Choosing Samples at Lower and Higher Redshift}
+% % can also compare to samples to merger fractions and merger rates chosen at z=1 and z=2 (plots you have already)
+% \subsection{Comparing with Merger Rates for Massive Galaxy Pairs}
+% % compare to massive pairs in both obs window and merger rate
+% % compare back to the assumption of isolation
+\section{Summary and Conclusions}
+
+% To do:
+% -Sample: starting with FoF group cut and always show the total sample (merged and unmerged) since the unmerged sample is so small
+% -Keep Fig 1: (two panels) add in a few more orbits to show the diversity and then have a panel to show one example where you shade everything below 100 kpc to show how the total time at S is computed
+% -Keep Figure 2 as is 
+% -Remove Figure 3
+% -Figure 4: remove normalization of both samples so it's clear that the unmerged ones spend a lot of time at high separation and that they are a small percent of the fraction (put this in discussion or an appendix)
+% -Remove Fig 5 and state conclusions in words along with the FoF group selection (most pairs have been in the same group for 1.5 Gyr) (can quote percentages from a cumulative version of the plot, or sum)
+% -Figure 6: only show the *full* sample with the FoF group cut 
+% check the half mass radius of the most massive dwarfs in your sample and justify 10 kpc by saying you want to be able to resolve twice that 
+
+
+
+
+
+
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/2_pull-orbits/example-orbit.pdf}
+    \caption{}
+    % \label{fig:orbitex}
+\end{figure*}
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/1_merged-fraction/mergedfraction.pdf}
+    \caption{}
+    % \label{fig:merger-frac}
+\end{figure*}
+
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/3_timescale-analysis/fullsamples.pdf}
+    \caption{}
+    % \label{fig:total-time}
+\end{figure*}
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/4_timescales/timevssep_z.pdf}
+    \caption{}
+    % \label{fig:redshift-evo}
+\end{figure*}
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/5_define-beginning/countvsinfalltime.pdf}
+    \caption{}
+    % \label{fig:infall-time}
+\end{figure*}
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/4_timescales/timevssep_phys+co.pdf}
+    \caption{}
+    % \label{fig:phys-comoving}
+\end{figure*}
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{lotz.png}
+    \caption{}
+    % \label{fig:phys-comoving}
+\end{figure*}
+
+
+
+
+
+
+
+\bibliography{refs}{}
+\bibliographystyle{aasjournal}
+
+\end{document}
+
