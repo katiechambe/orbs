@@ -112,12 +112,25 @@ For the purposes of our study, we will only be using the
 Plot #1: Merger fraction either before or after orbits
 Note that it is very interesting that dwarf pairs in the field have high merger fractions, while the likelihood of merger is very low in more dense environments (add citation).
 
+
+
 \subsubsection{Pulling Orbits}
 Orbital data for each pair from the \paircat{} was collected by following each subhalo of the pair both forwards and backwards in time via the \texttt{SUBLINK} algorithm~\citep{RG2015} merger trees.
 
-% interpolation
-Plot #2: Orbits plot
 
+The infall snapshot is defined as ZZZ. 
+We will define the "First Infall" as the first snapshot where the primary and secondary have the same parent FoF halo. 
+
+Mergers are XXX 
+Non-mergers are YYY. 
+The merger snapshot is defined ALALAL.
+
+The orbit collection includes mergers and non-mergers, which 
+
+Plot #2: Orbits plot
+Figure~\ref{fig:example-orbits} shows a collection of example orbits pulled from the merger trees of low-mass major pairs initially selected at $z=2$. 
+
+% interpolation
 
 
 
@@ -186,9 +199,14 @@ Is $(1+z)^-2$ the best fit?
 
 \begin{figure*}[htb]
     \centering
-    \includegraphics[width=\columnwidth]{plots/bet-on-it/}
-    \caption{}
-    % \label{fig:merger-frac}
+    \includegraphics[width=\textwidth]{plots/bet-on-it/exorbits_physical.pdf}
+    \caption{Selection of example orbits of low-mass major pairs selected at $z=2$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time.
+    Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group halo, while the dashed lines show the parts of the orbits that occur when the Group Halo of the primary and secondary are not the same. 
+    (Top) Orbits of pairs that merge before $z=0$. Pairs chosen at $z=2$ on average merge at $z=XX$/within XX Gyrs, though the spread of merger timescales is large, leading to a single redshift-selected sample having merger timescales between 0.5-8Gyr. 
+    (Middle) Orbits of pairs that did not merge before $z=0$ (non-mergers), but are likely to merge if the simulation continued. These orbits can have a variety of orbital periods and thus, a number of different pericentric passages. The two lighter blue orbits are very long period orbits with 1-2 pericenter passages in the past 10Gyr, while the darker blue orbits has a much shorter period with many close encounters throughout, and 3 close passages in just the past 2 Gyr. 
+    (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the $\sim2Gyr$ after the end of the simulation. 
+    }
+    \label{fig:example-orbits}
 \end{figure*}
 
 
