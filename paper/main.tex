@@ -156,14 +156,10 @@ Figure~\ref{fig:example-orbits} shows a collection of example orbits pulled from
 
 \begin{figure*}[htb]
     \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/4}
-    \caption{Selection of example orbits of low-mass major pairs selected at $z=2$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time.
-    Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group halo, while the dashed lines show the parts of the orbits that occur when the Group Halo of the primary and secondary are not the same. 
-    (Top) Orbits of pairs that merge before $z=0$. Pairs chosen at $z=2$ on average merge at $z=XX$/within XX Gyrs, though the spread of merger timescales is large, leading to a single redshift-selected sample having merger timescales between 0.5-8Gyr. 
-    (Middle) Orbits of pairs that did not merge before $z=0$ (non-mergers), but are likely to merge if the simulation continued. These orbits can have a variety of orbital periods and thus, a number of different pericentric passages. The two lighter blue orbits are very long period orbits with 1-2 pericenter passages in the past 10Gyr, while the darker blue orbits has a much shorter period with many close encounters throughout, and 3 close passages in just the past 2 Gyr. 
-    (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the $\sim2Gyr$ after the end of the simulation. 
+    \includegraphics[width=\textwidth]{plots/bet-on-it/4_examplecombo.png}
+    \caption{ 
     }
-    \label{fig:example-orbits}
+    \label{fig:interpolation}
 \end{figure*}
 
 
@@ -188,7 +184,7 @@ Plot #3-5?: the cumulative with spread for low vs. high mass
 
 \begin{figure*}[htb]
     \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_LoHi_int.pdf}
+    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_LoHi.pdf}
     \caption{\kc{reverse the direction of z} 
     The median (solid) and 1st-3rd quartile spread (shaded regions) of the cumulative time that isolated low-mass pairs (left) and high-mass pairs (right) spend with separations \rsep{} between $10\kpc$ and \Rphys{}. 
     The Merging Pairs sample (dark green and dark pink) selected at $z=(1,1.5,2)$ merge before $z=0$, while the All Pairs sample (light green and light pink) include all the pairs from the \paircat{} (mergers and non-mergers).  
@@ -201,7 +197,7 @@ Plot #3-5?: the cumulative with spread for low vs. high mass
 
 \begin{figure*}[htb]
     \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_PhScT_int.pdf}
+    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_PhScT.pdf}
     \caption{\kc{Add legend to plot, and I think reverse the direction of z} 
     The median and 1st-3rd quartile spread of the cumulative time that isolated merging pairs, selected at $z=(1,1.5,2)$, spend with separations \rsep{} greater than $10\kpc$ and less than either \Rphys{} or \Rsc{}.
     %
@@ -264,15 +260,34 @@ Is $(1+z)^-2$ the best fit?
 
 
 
+% \section{Discussion}
 
-
-
-\begin{figure*}[htb]
+\appendix
+\begin{figure}[htb]
     \centering
-    \includegraphics[width=\columnwidth]{plots/5_define-beginning/countvsinfalltime.pdf}
+    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_example1.png}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_example2.png}
     \caption{}
-    % \label{fig:infall-time}
-\end{figure*}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_examplecombo.png}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_number_pairs.png}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_timeinbin_beforemerger.png}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_timeinbin_untilmerger_phys.png}
+\end{figure}
 
 % \begin{figure*}[htb]
 %     \centering
