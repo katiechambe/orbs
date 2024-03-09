@@ -34,10 +34,13 @@
 \newcommand{\reflabel}[1]{\ensuremath{^{\mbox{\scriptsize{#1}}}}}
 \newcommand{\scsep}{\ensuremath{\rm r_{sep}/r_{vir}}}
 \newcommand{\scvel}{\ensuremath{\rm v_{rel}/v_{vir}}}
-%\newcommand{\lsubcat}{\textit{Low Mass Subhalo Catalog}}
-%\newcommand{\hsubcat}{\textit{High Mass Subhalo Catalog}}
+
+\newcommand{\rsep}{\ensuremath{\rm r_{sep}}}
 \newcommand{\paircat}{\textit{Full Pair Catalog}}
 \newcommand{\Rvir}{\ensuremath{\rm R_{vir}}}
+\newcommand{\Rphys}{\ensuremath{\rm R_{phys}}}
+\newcommand{\Rsc}{\ensuremath{\rm R_{sc}}}
+\newcommand{\rsep}{\ensuremath{\rm r_{sep}}}
 
 % Style tweaks
 % \renewcommand{\twocolumngrid}{\onecolumngrid}
@@ -50,7 +53,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{./}{../plots/}}
-% \input{math_definitions.tex}
+\input{math_definitions.tex}
 
 % Affiliations
 \newcommand{\affuofa}{University of Arizona, 933 N. Cherry Ave,
@@ -130,9 +133,44 @@ The orbit collection includes mergers and non-mergers, which
 Plot #2: Orbits plot
 Figure~\ref{fig:example-orbits} shows a collection of example orbits pulled from the merger trees of low-mass major pairs initially selected at $z=2$. 
 
-% interpolation
+
+\subsubsection{Interpolation}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\columnwidth]{plots/bet-on-it/1_fmerge_comp.png}
+    \caption{The fraction of pairs that merge before z=0 as a function of the redshift where they were selected via the selection criteria for the \paircat{} from \citet{Chamberlain2024}. At $z>1$, the fraction of selected pairs that merge before $z=0$ is upwards of 80\% for both low mass and high mass isolated pairs. The sharp decline to $F_{\rm merge}$ at $z=0$ is a non-physical feature of the simulation ending at $z=0$, thus unable to follow the pairs after the simulation ends to see what fraction of pairs may have merged.}
+    \label{fig:fmerge}
+\end{figure}
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{plots/bet-on-it/exorbits_physical.pdf}
+    \caption{Selection of example orbits of low-mass major pairs selected at $z=2$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time.
+    Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group halo, while the dashed lines show the parts of the orbits that occur when the Group Halo of the primary and secondary are not the same. 
+    (Top) Orbits of pairs that merge before $z=0$. Pairs chosen at $z=2$ on average merge at $z=XX$/within XX Gyrs, though the spread of merger timescales is large, leading to a single redshift-selected sample having merger timescales between 0.5-8Gyr. 
+    (Middle) Orbits of pairs that did not merge before $z=0$ (non-mergers), but are likely to merge if the simulation continued. These orbits can have a variety of orbital periods and thus, a number of different pericentric passages. The two lighter blue orbits are very long period orbits with 1-2 pericenter passages in the past 10Gyr, while the darker blue orbits has a much shorter period with many close encounters throughout, and 3 close passages in just the past 2 Gyr. 
+    (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the $\sim2Gyr$ after the end of the simulation. 
+    }
+    \label{fig:example-orbits}
+\end{figure*}
+
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{plots/bet-on-it/4}
+    \caption{Selection of example orbits of low-mass major pairs selected at $z=2$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time.
+    Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group halo, while the dashed lines show the parts of the orbits that occur when the Group Halo of the primary and secondary are not the same. 
+    (Top) Orbits of pairs that merge before $z=0$. Pairs chosen at $z=2$ on average merge at $z=XX$/within XX Gyrs, though the spread of merger timescales is large, leading to a single redshift-selected sample having merger timescales between 0.5-8Gyr. 
+    (Middle) Orbits of pairs that did not merge before $z=0$ (non-mergers), but are likely to merge if the simulation continued. These orbits can have a variety of orbital periods and thus, a number of different pericentric passages. The two lighter blue orbits are very long period orbits with 1-2 pericenter passages in the past 10Gyr, while the darker blue orbits has a much shorter period with many close encounters throughout, and 3 close passages in just the past 2 Gyr. 
+    (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the $\sim2Gyr$ after the end of the simulation. 
+    }
+    \label{fig:example-orbits}
+\end{figure*}
 
 
+
+% ###########################################################################################
+% Results II 
+% ###########################################################################################
 
 \section{Results - The Mass Dependence of Merger Timescales}
 % The point of this subsection: to show that using the same "observability times" for pairs selected in the same physical separation bins wouldn't work, and that the selection criteria for close pairs should either be scaled by size of halo, OR that timescales for ow mass and high mass would be different by a lot for the same physical separation choices. (Maybe come up with a functional form to relate the two? )
@@ -148,7 +186,41 @@ Plot #4: Cumulative distribution, low mass vs. high mass
 Plot #5: Cumulative distribution in scaled units, low mass vs. high mass
 Plot #3-5?: the cumulative with spread for low vs. high mass
 
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_LoHi_int.pdf}
+    \caption{\kc{reverse the direction of z} 
+    The median (solid) and 1st-3rd quartile spread (shaded regions) of the cumulative time that isolated low-mass pairs (left) and high-mass pairs (right) spend with separations \rsep{} between $10\kpc$ and \Rphys{}. 
+    The Merging Pairs sample (dark green and dark pink) selected at $z=(1,1.5,2)$ merge before $z=0$, while the All Pairs sample (light green and light pink) include all the pairs from the \paircat{} (mergers and non-mergers).  
+    The low-mass (high-mass) merging pairs represent XX\%(XX\%) of the low-mass (high-mass) pair sample at $z=1,1.5, \mbox{and } 2$ respectively. 
+    The sample of All Pairs spend more time at higher separations than the merging pairs, as expected since the non-merging pairs are not likely to have very low separations that would result in mergers prior to $z=0$. 
+    For a more direct comparison between the low-mass and high-mass pairs, see Fig.~\ref{fig:phys-vs-scaled}. 
+    }
+    \label{fig:low-vs-high}
+\end{figure*}
 
+\begin{figure*}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_PhScT_int.pdf}
+    \caption{\kc{Add legend to plot, and I think reverse the direction of z} 
+    The median and 1st-3rd quartile spread of the cumulative time that isolated merging pairs, selected at $z=(1,1.5,2)$, spend with separations \rsep{} greater than $10\kpc$ and less than either \Rphys{} or \Rsc{}.
+    %
+    (Top) The median total time spent by isolated merging pairs with separations between $10\kpc$ and \Rphys{}.
+    Low-mass pairs spend a longer amount of time within $\sim200\kpc$ than high-mass pairs at each of these redshifts. 
+    However, high-mass galaxies spend more time at higher separations of $\rsep>200-300\kpc$. This is because the elapsed time is measured starting at the infall snapshot of the pair, and high-mass halos have larger radii, the high-mass halo orbits have a broader distribution of separations that extend to larger separations than those of the low-mass pairs.
+    (Bottom) The median total time spent by pairs with separations greater than $\rsep>10\kpc$ and less than a given fraction of the virial radius ($\rsep/\Rvir<\Rsc$) of the pair, which scales with mass and redshift.  
+    High-mass pairs spend more time within the same scaled separation than low-mass pairs. For example, a high-mass pair selected from the $z=1.5$ sample will spend \kc{XXGyr} within \kc{$1\Rsc\simXX\kpc/$}, while a low-mass pair from the same sample will spend \kc{XXGyr} within \kc{$1\Rsc\simXX\kpc$}. 
+    Low-mass and high-mass pairs have similar cumulative time profiles as a function of scaled separation, with a roughly constant offset for all scaled separations. 
+    The high-mass pairs spend a median of \kc{$XX\Gyr$} more than low-mass pairs at every scaled separation at $z=1$ and $z=1.5$, and a median of \kc{$XX\Gyr$} more $z=2$.
+    }
+    \label{fig:phys-vs-scaled}
+\end{figure*}
+
+
+
+% ###########################################################################################
+% Results II 
+% ###########################################################################################
 \section{Results - The Redshift Dependence of Merger Timescales}
 % point: to show that the amount of time that pairs spend in the same physical separation bins changes by a significant amount between high and low redshift. In order to do pair fraction-merger rate studies appropriately, use Tobs(z), as suggested in Snyder 2017.  
 \subsection{explain subset of data used for this section}
@@ -190,39 +262,10 @@ Is $(1+z)^-2$ the best fit?
 
 
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\columnwidth]{plots/bet-on-it/1_fmerge_comp.png}
-    \caption{The fraction of pairs that merge before z=0 as a function of the redshift where they were selected via the selection criteria for the \paircat{} from \citet{Chamberlain2024}. At $z>1$, the fraction of selected pairs that merge before $z=0$ is upwards of 80\% for both low mass and high mass isolated pairs. The sharp decline to $F_{\rm merge}$ at $z=0$ is a non-physical feature of the simulation ending at $z=0$, thus unable to follow the pairs after the simulation ends to see what fraction of pairs may have merged.}
-    \label{fig:fmerge}
-\end{figure}
-
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/exorbits_physical.pdf}
-    \caption{Selection of example orbits of low-mass major pairs selected at $z=2$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time.
-    Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group halo, while the dashed lines show the parts of the orbits that occur when the Group Halo of the primary and secondary are not the same. 
-    (Top) Orbits of pairs that merge before $z=0$. Pairs chosen at $z=2$ on average merge at $z=XX$/within XX Gyrs, though the spread of merger timescales is large, leading to a single redshift-selected sample having merger timescales between 0.5-8Gyr. 
-    (Middle) Orbits of pairs that did not merge before $z=0$ (non-mergers), but are likely to merge if the simulation continued. These orbits can have a variety of orbital periods and thus, a number of different pericentric passages. The two lighter blue orbits are very long period orbits with 1-2 pericenter passages in the past 10Gyr, while the darker blue orbits has a much shorter period with many close encounters throughout, and 3 close passages in just the past 2 Gyr. 
-    (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the $\sim2Gyr$ after the end of the simulation. 
-    }
-    \label{fig:example-orbits}
-\end{figure*}
 
 
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\columnwidth]{plots/}
-    \caption{}
-    % \label{fig:total-time}
-\end{figure*}
 
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\columnwidth]{plots/4_timescales/timevssep_z.pdf}
-    \caption{}
-    % \label{fig:redshift-evo}
-\end{figure*}
+
 
 \begin{figure*}[htb]
     \centering
