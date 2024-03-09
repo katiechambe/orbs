@@ -35,7 +35,6 @@
 \newcommand{\scsep}{\ensuremath{\rm r_{sep}/r_{vir}}}
 \newcommand{\scvel}{\ensuremath{\rm v_{rel}/v_{vir}}}
 
-\newcommand{\rsep}{\ensuremath{\rm r_{sep}}}
 \newcommand{\paircat}{\textit{Full Pair Catalog}}
 \newcommand{\Rvir}{\ensuremath{\rm R_{vir}}}
 \newcommand{\Rphys}{\ensuremath{\rm R_{phys}}}
@@ -112,7 +111,7 @@ For the purposes of our study, we will only be using the
 
 \subsection{Mergers and Orbits}
 \subsubsection{Calculation of merger fraction of total sample}
-Plot #1: Merger fraction either before or after orbits
+Plot \#1: Merger fraction either before or after orbits
 Note that it is very interesting that dwarf pairs in the field have high merger fractions, while the likelihood of merger is very low in more dense environments (add citation).
 
 
@@ -130,9 +129,14 @@ The merger snapshot is defined ALALAL.
 
 The orbit collection includes mergers and non-mergers, which 
 
-Plot #2: Orbits plot
+Plot \#2: Orbits plot
 Figure~\ref{fig:example-orbits} shows a collection of example orbits pulled from the merger trees of low-mass major pairs initially selected at $z=2$. 
 
+ Non-mergers: These orbits can have a variety of orbital periods and thus, a number of different pericentric passages. The two lighter blue orbits are very long period orbits with 1-2 pericenter passages in the past 10Gyr, while the darker blue orbits has a much shorter period with many close encounters throughout, and 3 close passages in just the past 2 Gyr.
+
+Mergers:  Pairs chosen at $z=2$ on average merge at $z=XX$/within XX Gyrs, though the spread of merger timescales is large, leading to a single redshift-selected sample having merger timescales between 0.5-8Gyr.
+
+Flybys:
 
 \subsubsection{Interpolation}
 \begin{figure}[htb]
@@ -142,23 +146,22 @@ Figure~\ref{fig:example-orbits} shows a collection of example orbits pulled from
     \label{fig:fmerge}
 \end{figure}
 
-\begin{figure*}[htb]
+\begin{figure}[htb]
     \centering
-    \includegraphics[width=0.5\textwidth]{plots/bet-on-it/exorbits_physical.pdf}
-    \caption{Selection of example orbits of low-mass major pairs selected at $z=2$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time.
-    Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group halo, while the dashed lines show the parts of the orbits that occur when the Group Halo of the primary and secondary are not the same. 
-    (Top) Orbits of pairs that merge before $z=0$. Pairs chosen at $z=2$ on average merge at $z=XX$/within XX Gyrs, though the spread of merger timescales is large, leading to a single redshift-selected sample having merger timescales between 0.5-8Gyr. 
-    (Middle) Orbits of pairs that did not merge before $z=0$ (non-mergers), but are likely to merge if the simulation continued. These orbits can have a variety of orbital periods and thus, a number of different pericentric passages. The two lighter blue orbits are very long period orbits with 1-2 pericenter passages in the past 10Gyr, while the darker blue orbits has a much shorter period with many close encounters throughout, and 3 close passages in just the past 2 Gyr. 
-    (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the $\sim2Gyr$ after the end of the simulation. 
+    \includegraphics[width=\columnwidth, trim={0.4cm 1.75cm 1cm 3.5cm}, clip]{plots/bet-on-it/5_exampleorbits.png}
+    \caption{Selection of example orbits of low-mass major pairs selected at $z=1.5$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time. The vertical grey line marks $z=1.5$ at a Lookback Time of $9.5\,\Gyr$.
+    Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group, while the dashed lines show where they are not within the same FoF group. 
+    (Top) Orbits of pairs that merge before $z=0$. Pairs chosen at $z=1.5$ on average merge at \kc{$z=XX$/within XX Gyrs}.
+    (Middle) Orbits of pairs that did not merge before $z=0$ (non-mergers), but are likely to merge if the simulation continued. 
+    (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the future $\sim2\Gyr$ (past the end of the simulation). 
     }
     \label{fig:example-orbits}
-\end{figure*}
+\end{figure}
 
 \begin{figure*}[htb]
     \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/4_examplecombo.png}
-    \caption{ 
-    }
+    \includegraphics[width=0.8\textwidth]{plots/bet-on-it/4_examplecombo_unlabeled.png}
+    \caption{ Caption    }
     \label{fig:interpolation}
 \end{figure*}
 
@@ -172,15 +175,15 @@ Figure~\ref{fig:example-orbits} shows a collection of example orbits pulled from
 % The point of this subsection: to show that using the same "observability times" for pairs selected in the same physical separation bins wouldn't work, and that the selection criteria for close pairs should either be scaled by size of halo, OR that timescales for ow mass and high mass would be different by a lot for the same physical separation choices. (Maybe come up with a functional form to relate the two? )
 \subsection{explain subset of data used for this section}
 \subsection{Cumulative time}
-Plot #3: Cumulative time example calculation plot
+Plot \#3: Cumulative time example calculation plot
 \subsection{"time til merger" for selected snapshots for LvH. }
 Maybe also (distribution plot 2D hist? as function of selected separation)
 \subsection{Cumulative distributions}
 \subsubsection{Physical}
-Plot #4: Cumulative distribution, low mass vs. high mass
+Plot \#4: Cumulative distribution, low mass vs. high mass
 \subsubsection{Scaled}
-Plot #5: Cumulative distribution in scaled units, low mass vs. high mass
-Plot #3-5?: the cumulative with spread for low vs. high mass
+Plot \#5: Cumulative distribution in scaled units, low mass vs. high mass
+Plot \#3-5?: the cumulative with spread for low vs. high mass
 
 \begin{figure*}[htb]
     \centering
@@ -205,7 +208,7 @@ Plot #3-5?: the cumulative with spread for low vs. high mass
     Low-mass pairs spend a longer amount of time within $\sim200\kpc$ than high-mass pairs at each of these redshifts. 
     However, high-mass galaxies spend more time at higher separations of $\rsep>200-300\kpc$. This is because the elapsed time is measured starting at the infall snapshot of the pair, and high-mass halos have larger radii, the high-mass halo orbits have a broader distribution of separations that extend to larger separations than those of the low-mass pairs.
     (Bottom) The median total time spent by pairs with separations greater than $\rsep>10\kpc$ and less than a given fraction of the virial radius ($\rsep/\Rvir<\Rsc$) of the pair, which scales with mass and redshift.  
-    High-mass pairs spend more time within the same scaled separation than low-mass pairs. For example, a high-mass pair selected from the $z=1.5$ sample will spend \kc{XXGyr} within \kc{$1\Rsc\simXX\kpc/$}, while a low-mass pair from the same sample will spend \kc{XXGyr} within \kc{$1\Rsc\simXX\kpc$}. 
+    High-mass pairs spend more time within the same scaled separation than low-mass pairs. For example, a high-mass pair selected from the $z=1.5$ sample will spend \kc{XXGyr} within \kc{$1\Rsc\sim XX\kpc$}, while a low-mass pair from the same sample will spend \kc{XXGyr} within \kc{$1\Rsc\sim XX\kpc$}. 
     Low-mass and high-mass pairs have similar cumulative time profiles as a function of scaled separation, with a roughly constant offset for all scaled separations. 
     The high-mass pairs spend a median of \kc{$XX\Gyr$} more than low-mass pairs at every scaled separation at $z=1$ and $z=1.5$, and a median of \kc{$XX\Gyr$} more $z=2$.
     }
@@ -222,7 +225,7 @@ Plot #3-5?: the cumulative with spread for low vs. high mass
 \subsection{explain subset of data used for this section}
 \subsection{explain how data in the plot was calculated}
 \subsection{Redshift dependence}
-Plot #6: Redshift dependence for low and high mass pairs
+Plot \#6: Redshift dependence for low and high mass pairs
 \subsection{Best fit redshift dependence?/scaling?}
 Is $(1+z)^-2$ the best fit? 
 
@@ -262,6 +265,7 @@ Is $(1+z)^-2$ the best fit?
 
 % \section{Discussion}
 
+** 
 \appendix
 \begin{figure}[htb]
     \centering
