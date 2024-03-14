@@ -47,7 +47,7 @@
 % \sloppy\sloppypar\raggedbottom\frenchspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\shorttitle{Pair fractions in TNG100}
+\shorttitle{Merger Timescales in TNG100}
 \shortauthors{Chamberlain et al.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +62,7 @@
 
 \begin{document}
 
-\title{Orbits
+\title{A Physically Motivated Framework to Compare Merger Timescales\\ of Isolated Low- and High-Mass Galaxies Across Cosmic Time
 }
 
 \author[0000-0001-8765-8670]{Katie~Chamberlain}
@@ -81,7 +81,18 @@
 \author{others}
 
 \begin{abstract}
-
+% Statement
+Evolutionary differences between low-mass ($\rm 10^8<M_*<5\times10^9\,\Msun$) and high-mass ($\rm 5\times10^9<M_*<10^{11}\,\Msun$) galaxy pairs have been studied in detail for the last few decades, with studies finding differences in star formation rates, gas fractions, and dark matter halo profiles. 
+% Problem 
+However, many studies continue to use equivalent separation criteria to select galaxy pairs for pair fraction, merger fraction, and merger rate studies, though it is unclear that such a selection permits an equitable comparison between galaxies of different mass, nor as a function of redshift.   
+% Our solution
+We use the Illustris TNG100 simulation to quantify the merger timescales of isolated low-mass and high-mass galaxy pairs as a function of cosmic time. 
+% What are the timescales? 
+We show that separation limits that vary with the mass and redshift of the system, such as scaling by the virial radius of the host halo ($r_{\mathrm{sep}}< 1 R_{\rm vir}$), lead to equivalent merger timescales for Low- and High-mass systems at all redshifts. 
+Alternatively, static physical separation selections applied equivalently to all galaxy pairs at all redshifts, particularly for the closest pairs ($\rsep<150\kpc$) leads to timescales that differ between low- and high-mass pairs. 
+% Why it matters 
+Our findings suggest that the comparison of low-mass and high-mass galaxy pair fractions, merger timescales, and merger rates must be done with self-consistent separation criteria that scales as a function of mass and redshift of the system. 
+As a result, applying the same merger timescales to different mass systems will lead to a bias that systematically (over/under) predicts low-mass galaxy merger rates. 
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -140,14 +151,15 @@ Flybys:
 
 \subsubsection{Interpolation}
 \begin{figure}[htb]
-    \centering
+    \begin{center}
     \includegraphics[width=\columnwidth]{plots/bet-on-it/1_fmerge_comp.png}
     \caption{The fraction of pairs that merge before z=0 as a function of the redshift where they were selected via the selection criteria for the \paircat{} from \citet{Chamberlain2024}. At $z>1$, the fraction of selected pairs that merge before $z=0$ is upwards of 80\% for both low mass and high mass isolated pairs. The sharp decline to $F_{\rm merge}$ at $z=0$ is a non-physical feature of the simulation ending at $z=0$, thus unable to follow the pairs after the simulation ends to see what fraction of pairs may have merged.}
     \label{fig:fmerge}
+    \end{center}
 \end{figure}
 
 \begin{figure}[htb]
-    \centering
+    \begin{center}
     \includegraphics[width=\columnwidth, trim={0.4cm 1.75cm 1cm 3.5cm}, clip]{plots/bet-on-it/5_exampleorbits.png}
     \caption{Selection of example orbits of low-mass major pairs selected at $z=1.5$, showing the separation between the primary and secondary halo of the pair as a function of Lookback Time. The vertical grey line marks $z=1.5$ at a Lookback Time of $9.5\,\Gyr$.
     Solid lines represent the parts of the orbit where the primary and secondary halo have the same FoF group, while the dashed lines show where they are not within the same FoF group. 
@@ -156,109 +168,88 @@ Flybys:
     (Bottom) Orbits of pairs that did not merge before $z=0$ (non-mergers) and are unlikely to do so in the future $\sim2\Gyr$ (past the end of the simulation). 
     }
     \label{fig:example-orbits}
+    \end{center}
 \end{figure}
-
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=0.8\textwidth]{plots/bet-on-it/4_examplecombo_unlabeled.png}
-    \caption{ Caption    }
-    \label{fig:interpolation}
-\end{figure*}
-
 
 
 % ###########################################################################################
 % Results II 
 % ###########################################################################################
 
-\section{Results - The Mass Dependence of Merger Timescales}
-% The point of this subsection: to show that using the same "observability times" for pairs selected in the same physical separation bins wouldn't work, and that the selection criteria for close pairs should either be scaled by size of halo, OR that timescales for ow mass and high mass would be different by a lot for the same physical separation choices. (Maybe come up with a functional form to relate the two? )
-\subsection{explain subset of data used for this section}
-\subsection{Cumulative time}
-Plot \#3: Cumulative time example calculation plot
-\subsection{"time til merger" for selected snapshots for LvH. }
+\section{Results - The Mass and Redshift Dependence of Merger Timescales}
+% The point of this subsection: to show that using the same "observability times" for pairs selected in the same physical separation bins wouldn't work, and that the selection criteria for close pairs should either be scaled with mass and redshift. 
+\subsection{"time til merger" for selected snapshots for LvH.}
 Maybe also (distribution plot 2D hist? as function of selected separation)
 \subsection{Cumulative distributions}
 \subsubsection{Physical}
-Plot \#4: Cumulative distribution, low mass vs. high mass
 \subsubsection{Scaled}
-Plot \#5: Cumulative distribution in scaled units, low mass vs. high mass
-Plot \#3-5?: the cumulative with spread for low vs. high mass
 
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_LoHi.png}
-    \caption{\kc{reverse the direction of z} 
-    The median (solid) and 1st-3rd quartile spread (shaded regions) of the cumulative time that isolated low-mass pairs (left) and high-mass pairs (right) spend with separations \rsep{} between $10\kpc$ and \Rphys{}. 
-    The Merging Pairs sample (dark green and dark pink) selected at $z=(1,1.5,2)$ merge before $z=0$, while the All Pairs sample (light green and light pink) include all the pairs from the \paircat{} (mergers and non-mergers).  
-    The low-mass (high-mass) merging pairs represent XX\%(XX\%) of the low-mass (high-mass) pair sample at $z=1,1.5, \mbox{and } 2$ respectively. 
-    The sample of All Pairs spend more time at higher separations than the merging pairs, as expected since the non-merging pairs are not likely to have very low separations that would result in mergers prior to $z=0$. 
-    For a more direct comparison between the low-mass and high-mass pairs, see Fig.~\ref{fig:phys-vs-scaled}. 
-    }
-    \label{fig:low-vs-high}
-\end{figure*}
+% \begin{figure*}[htb]
+%     \centering
+%     \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_LoHi.png}
+%     \caption{\kc{reverse the direction of z} 
+%     The median (solid) and 1st-3rd quartile spread (shaded regions) of the cumulative time that isolated low-mass pairs (left) and high-mass pairs (right) spend with separations \rsep{} between $10\kpc$ and \Rphys{}. 
+%     The Merging Pairs sample (dark green and dark pink) selected at $z=(1,1.5,2)$ merge before $z=0$, while the All Pairs sample (light green and light pink) include all the pairs from the \paircat{} (mergers and non-mergers).  
+%     The low-mass (high-mass) merging pairs represent XX\%(XX\%) of the low-mass (high-mass) pair sample at $z=1,1.5, \mbox{and } 2$ respectively. 
+%     The sample of All Pairs spend more time at higher separations than the merging pairs, as expected since the non-merging pairs are not likely to have very low separations that would result in mergers prior to $z=0$. 
+%     For a more direct comparison between the low-mass and high-mass pairs, see Fig.~\ref{fig:phys-vs-scaled}. 
+%     }
+%     \label{fig:low-vs-high}
+% \end{figure*}
 
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_PhScT.png}
-    \caption{\kc{Add legend to plot, and I think reverse the direction of z} 
-    The median and 1st-3rd quartile spread of the cumulative time that isolated merging pairs, selected at $z=(1,1.5,2)$, spend with separations \rsep{} greater than $10\kpc$ and less than either \Rphys{} or \Rsc{}.
-    %
-    (Top) The median total time spent by isolated merging pairs with separations between $10\kpc$ and \Rphys{}.
-    Low-mass pairs spend a longer amount of time within $\sim200\kpc$ than high-mass pairs at each of these redshifts. 
-    However, high-mass galaxies spend more time at higher separations of $\rsep>200-300\kpc$. This is because the elapsed time is measured starting at the infall snapshot of the pair, and high-mass halos have larger radii, the high-mass halo orbits have a broader distribution of separations that extend to larger separations than those of the low-mass pairs.
-    (Bottom) The median total time spent by pairs with separations greater than $\rsep>10\kpc$ and less than a given fraction of the virial radius ($\rsep/\Rvir<\Rsc$) of the pair, which scales with mass and redshift.  
-    High-mass pairs spend more time within the same scaled separation than low-mass pairs. For example, a high-mass pair selected from the $z=1.5$ sample will spend \kc{XXGyr} within \kc{$1\Rsc\sim XX\kpc$}, while a low-mass pair from the same sample will spend \kc{XXGyr} within \kc{$1\Rsc\sim XX\kpc$}. 
-    Low-mass and high-mass pairs have similar cumulative time profiles as a function of scaled separation, with a roughly constant offset for all scaled separations. 
-    The high-mass pairs spend a median of \kc{$XX\Gyr$} more than low-mass pairs at every scaled separation at $z=1$ and $z=1.5$, and a median of \kc{$XX\Gyr$} more $z=2$.
-    }
-    \label{fig:phys-vs-scaled}
-\end{figure*}
+% \begin{figure*}[htb]
+%     \centering
+%     \includegraphics[width=\textwidth]{plots/bet-on-it/2_medtotal_PhScT.png}
+%     \caption{\kc{Add legend to plot, and I think reverse the direction of z} 
+%     The median and 1st-3rd quartile spread of the cumulative time that isolated merging pairs, selected at $z=(1,1.5,2)$, spend with separations \rsep{} greater than $10\kpc$ and less than either \Rphys{} or \Rsc{}.
+%     %
+%     (Top) The median total time spent by isolated merging pairs with separations between $10\kpc$ and \Rphys{}.
+%     Low-mass pairs spend a longer amount of time within $\sim200\kpc$ than high-mass pairs at each of these redshifts. 
+%     However, high-mass galaxies spend more time at higher separations of $\rsep>200-300\kpc$. This is because the elapsed time is measured starting at the infall snapshot of the pair, and high-mass halos have larger radii, the high-mass halo orbits have a broader distribution of separations that extend to larger separations than those of the low-mass pairs.
+%     (Bottom) The median total time spent by pairs with separations greater than $\rsep>10\kpc$ and less than a given fraction of the virial radius ($\rsep/\Rvir<\Rsc$) of the pair, which scales with mass and redshift.  
+%     High-mass pairs spend more time within the same scaled separation than low-mass pairs. For example, a high-mass pair selected from the $z=1.5$ sample will spend \kc{XXGyr} within \kc{$1\Rsc\sim XX\kpc$}, while a low-mass pair from the same sample will spend \kc{XXGyr} within \kc{$1\Rsc\sim XX\kpc$}. 
+%     Low-mass and high-mass pairs have similar cumulative time profiles as a function of scaled separation, with a roughly constant offset for all scaled separations. 
+%     The high-mass pairs spend a median of \kc{$XX\Gyr$} more than low-mass pairs at every scaled separation at $z=1$ and $z=1.5$, and a median of \kc{$XX\Gyr$} more $z=2$.
+%     }
+%     \label{fig:phys-vs-scaled}
+% \end{figure*}
 
 
 
 % ###########################################################################################
 % Results II 
 % ###########################################################################################
-\section{Results - The Redshift Dependence of Merger Timescales}
-% point: to show that the amount of time that pairs spend in the same physical separation bins changes by a significant amount between high and low redshift. In order to do pair fraction-merger rate studies appropriately, use Tobs(z), as suggested in Snyder 2017.  
-\subsection{explain subset of data used for this section}
-\subsection{explain how data in the plot was calculated}
-\subsection{Redshift dependence}
-Plot \#6: Redshift dependence for low and high mass pairs
-\subsection{Best fit redshift dependence?/scaling?}
-Is $(1+z)^-2$ the best fit? 
 
 
+
+% \begin{figure*}[htb]
+%     \centering
+%     \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevsz.png}
+%     \caption{}
+%     % \label{fig:low-vs-high}
+% \end{figure*}
+% \begin{figure*}[htb]
+%     \centering
+%     \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevsz-2d.png}
+%     \caption{}
+%     % \label{fig:low-vs-high}
+% \end{figure*}
 \begin{figure*}[htb]
     \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevsseplow-2d.png}
+    \includegraphics[width=\textwidth]{plots/bet-on-it/3_time_til_merger_full_fit.png}
     \caption{}
-    \label{fig:low-vs-high}
+    % \label{fig:low-vs-high}
 \end{figure*}
 
 \begin{figure*}[htb]
     \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevssephigh-2d.png}
+    \includegraphics[width=\textwidth]{plots/bet-on-it/3_time_til_merger.png}
     \caption{}
-    \label{fig:low-vs-high}
-\end{figure*}
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevsz.png}
-    \caption{}
-    \label{fig:low-vs-high}
-\end{figure*}
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevsz-2d.png}
-    \caption{}
-    \label{fig:low-vs-high}
+    % \label{fig:low-vs-high}
 \end{figure*}
 
 
-
-% \section{Discussion}
+\section{Discussion}
 % \subsection{Merger Rates for Dwarf Pairs}
 % % - What combination of values best reproduces the merger fraction acquired from the sims?
 % % Do you need the scale of merger probability as in Ventou to get the match?
@@ -270,6 +261,8 @@ Is $(1+z)^-2$ the best fit?
 % \subsection{Comparing with Merger Rates for Massive Galaxy Pairs}
 % % compare to massive pairs in both obs window and merger rate
 % % compare back to the assumption of isolation
+
+
 \section{Summary and Conclusions}
 
 % To do:
@@ -294,31 +287,44 @@ Is $(1+z)^-2$ the best fit?
 
 ** 
 \appendix
-\begin{figure}[htb]
+\begin{figure*}[htb]
     \centering
-    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_example1.png}
-\end{figure}
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_example2.png}
+    \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevsseplow-2d.png}
     \caption{}
-\end{figure}
-\begin{figure}[htb]
+    % \label{fig:low-vs-high}
+\end{figure*}
+
+\begin{figure*}[htb]
     \centering
-    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_examplecombo.png}
-\end{figure}
+    \includegraphics[width=\textwidth]{plots/bet-on-it/3_Timevssephigh-2d.png}
+    \caption{}
+    % \label{fig:low-vs-high}
+\end{figure*}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_example1.png}
+% \end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_example2.png}
+%     \caption{}
+% \end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_examplecombo.png}
+% \end{figure}
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_number_pairs.png}
 \end{figure}
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_timeinbin_beforemerger.png}
-\end{figure}
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_timeinbin_untilmerger_phys.png}
-\end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_timeinbin_beforemerger.png}
+% \end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_timeinbin_untilmerger_phys.png}
+% \end{figure}
 
 % \begin{figure*}[htb]
 %     \centering
