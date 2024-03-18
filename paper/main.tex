@@ -235,17 +235,51 @@ Since our entire pair sample consists of pairs chosen at separate snapshots, and
 To distinguish pairs from one snapshot to another, each pair is assigned a pairkey while constructing their orbit, which is created by combining the primary's and secondary's earliest SubhaloID from the Sublink catalogs, which will be unique for each pair of halos. 
 After each pair is assigned a unique pairkey, we save the orbit as a function of time only once for a pair that otherwise would have been double/multi-counted in our orbit catalog.
 
-The total number of low-mass pairs selected at each snapshot (given by $\Sigma_{S_n} n_p$) the sum of the number of pairs that pass the selection criteria at each snapshot is XXX, while the total number of \textit{unique} pairs is XXX. 
-The total number of high-mass pairs is XXX, while the total number of unique pairs is XXX. 
+For $n_k$ the number of pairs selected at snapshot $S_k$ via the selection criteria/from the base sample, the total number of pairs is given by
+\begin{equation*}
+    \sum_{k=0}^{99}\, n_k
+\end{equation*}
+The total number of low-mass pairs is 71,429, and the total number of high-mass pairs is 20,824.
+After selecting only unique pairs, there remain 22,213 unique low-mass pairs, and 3,029 unique high-mass pairs.
 
 Note that a single subhalo may be a member of many different pairs, but will only have one unique orbit per unique pair.
-For example, the primary of a low-mass pair selected at $z=3$ and merges before $z=2$ may be selected at a later snapshot with a new secondary companion. 
-In this case, both orbits (of the original low-mass pair and the new pair which includes the remnant subhalo from the previous merger) are kept, since having the primary occur twice in the catalog does not mean that the orbit is being double counted ugh. 
+For example, the primary of a low-mass pair selected at $z=3$ that merges before $z=2$ may be selected via our selection criteria again at $z=1$ with a new secondary companion. 
+In this case, both orbits (of the original low-mass pair and the new pair which includes the remnant subhalo from the previous merger) are kept, since having the primary occur twice in the catalog does not mean that the orbit is being double counted. ugh. 
 
 
-\subsection{Calculating the Merger Fraction}
-\subsection{Calculating the Time Until Merger}
+Maybe need to define the "unique pair sample" and the "snapshot selected sample" to explain the plots? I think all plots EXCEPT the merger fraction are with unique pair sample.... DO I need to change that plot? 
+% \subsection{Calculating the Number of Unique Pairs}
 
+% \subsection{Calculating the Merger Fraction}
+
+% \subsection{Calculating the Time Until Merger}
+
+
+\section{Pair Sample Properties}
+\subsection{Number of Unique Pairs}
+We calculate the number of unique pairs at a given snapshot by selecting all unique pairs at that snapshot that have already experienced first infall, and then sum the number of pairs that have yet to merge.
+Thus, the total number of unique pairs at $z=2$ includes pairs that were added to the catalog at \textit{any} snapshot, provided they achieved first infall at $z\geq2$ and have a merger redshift $z<2$. 
+A single pair (for example, a pair that was first selected in the snapshot-selected catalogs at $z=1$) may meet the conditions of being a "post-infall + pre-merger" pair for $z=0-3$, and will thus contribute to the number of unique pairs at all redshifts from $z=0-3$. 
+
+In Fig.~\ref{fig:num-pairs}, we show the number of low-mass and high-mass unique pairs as a function of redshift from $z=0-6$. 
+Unique low-mass pairs (green solid line) are most numerous between $z=1.25-2$, while unique high-mass pairs (pink solid line) are most numerous between $2=0-1$.
+The dashed lines show the number of unique pairs that merge prior to $z=0$ for each sample. 
+The number of pairs that merge decreases to 0 at $z=0$ since pairs selected at $z=0$ by definition have not merged, and thus will not have the chance to, and low redshift selected pairs will on average have merger timescales longer than the remaining time to the end of the simulation. 
+
+The light green and light pink shaded regions show the number of pairs selected at each snapshot individually, so pairs at $z=1$ that do not pass the snapshot-selection criteria at $z=2$ are not included in the number of pairs at $z=2$, but may still be counted at all snapshots where the selection criteria are met. 
+These lines are identical to the pair count lines for low-mass and high-mass pairs from Fig.~1 in~\cite{Chamberlain2024}.
+
+\begin{figure}[htb]
+    \begin{center}
+    \includegraphics[width=\columnwidth]{plots/bet-on-it/3_number_pairs.png}
+    \caption{\kc{change redshift range to 0-6}, add \# pairs from pears, change dash to dots}
+    \label{fig:num-pairs}
+    \end{center}
+\end{figure}
+
+
+
+\subsection{Merger Fraction}
 
 \begin{figure}[htb]
     \begin{center}
@@ -254,8 +288,6 @@ In this case, both orbits (of the original low-mass pair and the new pair which 
     \label{fig:fmerge}
     \end{center}
 \end{figure}
-
-\section{Pair Sample Properties}
 
 
 % ###########################################################################################
@@ -407,10 +439,7 @@ Maybe also (distribution plot 2D hist? as function of selected separation)
 %     \centering
 %     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/4_examplecombo.png}
 % \end{figure}
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_number_pairs.png}
-\end{figure}
+
 % \begin{figure}[htb]
 %     \centering
 %     \includegraphics[width=0.5\columnwidth]{plots/bet-on-it/3_timeinbin_beforemerger.png}
