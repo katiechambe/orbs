@@ -406,12 +406,22 @@ We make no selection cuts based on pair separation, and thus include the full ca
 Essentially, we find the median time that any physically associated isolated pair will take to merge, provided it's a merging pair to begin with. 
 
 Figure~\ref{fig:timescales} presents the median, and 1st and 3rd quartile spread, of the time until merger for merging pairs from $z=0-6$. 
+% low vs high
 Low-mass merger timescales (green) and high-mass merger timescales (pink) are roughly equivalent at all redshifts. 
+
+% redshift evolution
 The median time until merger is $\sim0.5-0.7\,\Gyr$ at $z\sim6$, then rises to a peak of $2.3-2.4\,\Gyr$ at $z\sim0.6$, then decreases to 0 at $z=0$.
+The abrupt decrease to 0 from $z=0.6$ to $z=0$ is an artificial rather than a true physical feature, and is caused by the lookback time of the simulation becoming shorter than the merger timescales of more and more pairs. 
+The lookback time of the simulation as a function of redshift is given by the dotted black line on the left of Fig.~\ref{fig:timescales}.
+At $z=0$, the number of pairs that will merge is 0, since we cannot track the orbits of the subhalos into the future.
 
-\kc{left off here}
-
-% Pairs chosen at $z=1.5$ on average merge at $z=XX$/within XX Gyrs.
+In addition, we show 
+\begin{equation}
+\frac{2}{5}*H(z)^{-1}
+\end{equation}
+given the Hubble parameter $H(z)$ as the dashed black line that sits above the median time until merger.
+We also show the age of the simulation as a function of redshift (dashed grey).
+% rest of stuff to talk about with this plot is discussion (i think) like what does this imply about the merger timescales of low vs high mass pairs? 
 
 \subsubsection{Separation Criteria: Static \& Physical }
 The first set of separation criteria will select only pairs at a given redshift that have separations greater than $10\,\kpc$ and less than $[50, 70, 100, 150, 200, \mbox{and }300]\kpc$. 
@@ -474,16 +484,16 @@ However, quite unlike the subsamples in the top panels, the scaled separation-se
 
 
 
-\begin{figure*}[htb]
+\begin{figure}[htb]
     \centering
-    \includegraphics[width=0.9\textwidth]{plots/bet-on-it/3_time_til_merger_full_fit.png}
-    \caption{\kc{TODO: add LookbackTime vs. Z line, add Hubble time line} The median time until merger as a function of redshift for low-mass (green) and high-mass (pink) pairs. Shaded regions represent the 1st and 3rd quartile spread on the median. Pairs at each redshift are selected if they have experienced first infall. 
+    \includegraphics[width=\columnwidth]{plots/bet-on-it/8_timescale.png}
+    \caption{The median time until merger as a function of redshift for low-mass (green) and high-mass (pink) pairs. Shaded regions represent the 1st and 3rd quartile spread on the median. Pairs at each redshift are selected if they have experienced first infall and are pre-merger. 
     % 
-    The black dashed line shows the Hubble time, which bounds the median time until merger from $z=6$ to $z\sim0.5-0.75$.
-    The dotted grey line shows the time to $z=0$ (the Lookback Time) as a function of redshift, which sets the upper bound for the time until merger that a merging pair can have. 
+    The black dashed line shows a fraction of the Hubble time as a function of redshift, which bounds the median time until merger from $z=6$ to $z\sim0.5-0.75$.
+    The dotted black line shows the time to $z=0$ (the lookback time) as a function of redshift, which sets the upper bound for the time until merger that a merging pair can have. 
     The median time until merger is similar for low-mass and high-mass pairs, and rises from $z=6$ to a peak at $z\sim0.75$, then decreases to $z=0$.}
     \label{fig:timescales}
-\end{figure*}
+\end{figure}
 
 \begin{figure*}[htb]
     \centering
