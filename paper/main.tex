@@ -10,62 +10,33 @@
 \usepackage{xcolor}
 \usepackage{soul}
 
+% defining colors for personalized comments
 \definecolor{pink}{RGB}{232,132,161}
 \definecolor{yellow}{RGB}{255,213,0}
-
 \newcommand{\kc}[1]{\textcolor{yellow}{\textbf{kc: #1}} }
-\newcommand\shadetext[2][]{%
-  \setbox0=\hbox{{\special{pdf:literal 7 Tr }#2}}%
-  \tikz[baseline=0]\path [#1] \pgfextra{\rlap{\copy0}} (0,-\dp0) rectangle (\wd0,\ht0);% 
-  }
-\newcommand{\ep}[1]{\shadetext[left color=blue, right color=red, middle color=lime, shading angle=45]{\textbf{e: #1}} }
-% \newcommand{\ecite}[1]{\textcolor{pink}{\textbf{: #1}} }
-% \newcommand{\e}[1]{\textcolor{yellow}{\textbf{: #1}} }
+\newcommand{\ep}[1]{\textcolor{pink}{\textbf{e: #1}} }
 
-\newcommand{\remove}[1]{\textcolor{red}{#1}}
-\newcommand{\add}[1]{\textcolor{green}{#1}}
+% defining affiliations
+\newcommand{\affuofa}{University of Arizona, 933 N. Cherry Ave,
+    Tucson, AZ 85721, USA}
+\newcommand{\affuofu}{Department of Astronomy, University of Utah, Salt Lake City, UT 84112, USA}
 
-\newcommand{\mlg}{\ensuremath{M_{\rm LG}}}
-\newcommand{\mmto}{\ensuremath{M_{\rm M31}}}
-\newcommand{\mmw}{\ensuremath{M_{\rm MW}}}
-\newcommand{\vtan}{\ensuremath{v_\textrm{tan}}}
-\newcommand{\vrad}{\ensuremath{v_\textrm{rad}}}
-\newcommand{\ms}[1]{\ensuremath{M_{*{#1}}}}
-\newcommand{\reflabel}[1]{\ensuremath{^{\mbox{\scriptsize{#1}}}}}
-\newcommand{\scsep}{\ensuremath{\rm r_{sep}/r_{vir}}}
-\newcommand{\scvel}{\ensuremath{\rm v_{rel}/v_{vir}}}
-
-\newcommand{\paircat}{\textit{Full Pair Catalog}}
-\newcommand{\Rvir}{\ensuremath{\rm R_{vir}}}
-\newcommand{\Rphys}{\ensuremath{\rm R_{phys}}}
-\newcommand{\Rsc}{\ensuremath{\rm R_{sc}}}
-\newcommand{\rsep}{\ensuremath{\rm r_{sep}}}
-
+% reference to previous paper
 \newcommand{\chambe}{\citet{Chamberlain2024}}
 
 % Style tweaks
-% \renewcommand{\twocolumngrid}{\onecolumngrid}
-% \setlength{\parindent}{1.1\baselineskip}
-% \sloppy\sloppypar\raggedbottom\frenchspacing
+\sloppy\sloppypar\raggedbottom\frenchspacing
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\shorttitle{Merger Timescales in TNG100}
-\shortauthors{Chamberlain et al.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inputs for path to plots and math defs
 \graphicspath{{./}{../plots/}}
 \input{math_definitions.tex}
 
-% Affiliations
-\newcommand{\affuofa}{University of Arizona, 933 N. Cherry Ave,
-    Tucson, AZ 85721, USA}
-
-\newcommand{\affuofu}{Department of Astronomy, University of Utah, Salt Lake City, UT 84112, USA}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \title{A Physically Motivated Framework to Compare Merger Timescales\\ of Isolated Low- and High-Mass Galaxy Pairs Across Cosmic Time
 }
+\shorttitle{Merger Timescales in TNG100}
 
 \author[0000-0001-8765-8670]{Katie~Chamberlain}
 \affiliation{\affuofa}
@@ -73,53 +44,55 @@
 \author[0000-0002-9820-1219]{Ekta~Patel}
 \thanks{Hubble Fellow}\affiliation{\affuofu}
 
-
 \author[0000-0003-0715-2173]{Gurtina Besla}
 \affiliation{\affuofa}
 
 \author{others}
 
+\shortauthors{Chamberlain et al.}
+
 
 \begin{abstract}
-% Statement
-Evolutionary differences between low-mass ($\rm 10^8<M_*<5\times10^9\,\Msun$) and high-mass ($\rm 5\times10^9<M_*<10^{11}\,\Msun$) galaxy pairs have been studied in detail for the last few decades, with studies finding differences in star formation rates, gas fractions, and dark matter halo profiles. 
-% Problem 
-Pair fraction, merger fraction, and merger rate studies of high-mass pairs have been studied extensively, both observationally and theoretically. 
-However, it is unclear if using the same separation criteria to select low-mass galaxy pairs for such studies, or if using the same separation criteria at different redshifts, permits an equitable comparison between galaxies of different mass and redshift. 
-% Our solution
-Here, we present a physically-motivated framework by which merger timescales for high-mass and low-mass pairs can be compared equivalently 
-%and converted from one system to another 
-by scaling by the virial radius of the primary's FoF group halo ($r_{\mathrm{sep}}< 1 R_{\rm vir}$). 
-We use the Illustris TNG100 simulation to quantify the merger timescales of isolated low-mass major pairs as a function of cosmic time, and compare to the merger timescales of similarly-selected high-mass major pairs. 
-Using our framework to select pairs via a scaled separation criterion leads to equivalent merger timescales for low- and high-mass systems at redshifts $z=0-6$. 
-% What are the timescales? 
-Alternatively, static physical separation selections applied equivalently to all galaxy pairs at all redshifts, particularly for the closest pairs ($\rsep<150\kpc$), leads to timescales that differ by up to $\sim1\Gyr$ between low- and high-mass pairs. 
-% Why it matters 
-Our findings suggest that the comparison of low-mass and high-mass galaxy pair fractions, merger timescales, and merger rates is self-consistent using separation criteria that scales as a function of mass and redshift of the system. 
-As a result, applying the same merger timescales to different mass systems will lead to a bias that systematically (over/under) predicts low-mass galaxy merger rates. 
+    % Statement
+    % Evolutionary differences between low-mass ($\rm 10^8<M_*<5\times10^9\,\Msun$) and high-mass ($\rm 5\times10^9<M_*<10^{11}\,\Msun$) galaxy pairs have been studied in detail for the last few decades, with studies finding differences in star formation rates, gas fractions, and dark matter halo profiles. % could remove this line 
+    % Problem 
+    The merger rates of high-mass pairs ($\rm 5\times10^9<M_*<10^{11}\,\Msun$) have been studied extensively, both observationally and theoretically. 
+    Since low-mass pairs ($\rm 10^8<M_*<5\times10^9\,\Msun$) are comparatively under studied, it is common to apply the same separation criteria and expected merger timescales of high-mass pairs to low-mass systems.
+    However, it is unclear if using the same separation criteria to select low-mass galaxy pairs for such studies, or if using the same separation criteria at different redshifts, permits an equitable comparison between galaxies of different mass and redshift. 
+    % Our solution
+    Here, we present a physically-motivated framework by which merger timescales for high-mass and low-mass pairs can be compared equivalently 
+    %and converted from one system to another 
+    by scaling by the virial radius of the primary's FoF group halo ($r_{\mathrm{sep}}< 1 R_{\rm vir}$). 
+    We use the Illustris TNG100 simulation to quantify the merger timescales of isolated low-mass major pairs as a function of cosmic time, and compare to the merger timescales of similarly-selected high-mass major pairs. 
+    Using our framework to select pairs via a scaled separation criterion leads to equivalent merger timescales for low- and high-mass systems at redshifts $z=0-6$. 
+    % What are the timescales? 
+    Alternatively, static physical separation selections applied equivalently to all galaxy pairs at all redshifts, particularly for the closest pairs ($\rsep<150\kpc$), leads to timescales that differ by up to $\sim1\Gyr$ between low- and high-mass pairs. 
+    % Why it matters 
+    Our findings suggest that the comparison of low-mass and high-mass galaxy pair fractions, merger timescales, and merger rates is self-consistent using separation criteria that scales as a function of mass and redshift of the system. 
+    As a result, applying the same merger timescales to different mass systems will lead to a bias that systematically (over/under) predicts low-mass galaxy merger rates. 
 \end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction} \label{sec:intro}
 
-% $z=1.5$ corresponds to snapshot \#40 in the TNG sim
 % Introduce RG15, Lotz, etc.
-
-
+% \input{paper/notes_for_intro}
 
 %%% OUTLINE
 \section{Methodology} \label{sec:methods}
 %recap last paper and mention which data sample we narrow down to (low mass major pairs only) -- give examples of orbits
-We utilize the group catalogs, produced by the \texttt{SUBFIND} algorithm~\citep{Springel2001,Dolag2009}, and the merger tree catalogs, generated by the \texttt{SUBLINK} algorithm~\citep{RG2015}, from the highest resolution run of the IllustrisTNG simulation TNG100-1 (hereafter TNG100) to study the merger timescales of galaxy pairs from $z=0-6$.
+We utilize the group catalogs, produced by the \subfind{} algorithm~\citep{Springel2001,Dolag2009}, and the merger tree catalogs, generated by the \sublink{} algorithm~\citep{RG2015}, from the highest resolution run of the IllustrisTNG simulation TNG100-1 (hereafter TNG100) to study the merger timescales of galaxy pairs from $z=0-6$.
 The catalogs consist of a set of 100 snapshots, ranging from $z\sim20$ (snapshot 0) to $z=0$ (snapshot 99).
 
 Our sample consists of major (stellar mass ratio $M_{*2}/M_{*1}= 1/4 - 1$) low-mass and high-mass pairs that are isolated but physically associated as in \citet{Chamberlain2024}.
 From this sample, we will determine the fraction of pairs at each snapshot that merge before $z=0$, and track the orbits of each pair to study their merger timescales.
 
 \subsection{Pair sample}
-We begin with an extension of the \paircat{} described in ~\citet{Chamberlain2024}, which consists of a collection of isolated subhalo pairs at each snapshot in TNG100. 
-We collect our base sample at each redshift in the simulation (from $z=0-\sim 27$). 
-A brief version of the selection routine is transcribed here for completeness, and we refer readers to Sec.~2 of~\citet{Chamberlain2024} for more detail and a discussion of the selection criteria choices. 
+We begin with an extension of the \paircat{} described in \chambe{}, which consists of a collection of isolated galaxy pairs at each snapshot in TNG100. 
+We collect our base sample at each redshift in the simulation. 
+A brief version of the selection routine is transcribed here for completeness, and we refer readers to Sec.~2 of \chambe{} for more detail and a discussion of the selection criteria choices. 
 
 At each snapshot, low-mass and high-mass pairs are chosen by first selecting the two most massive halos (by stellar mass) from FoF groups with virial mass\footnote{We use \texttt{Group\_M\_TopHat200} from the TNG100 Group Catalogs as the FoF Group virial mass. This mass is defined to be the mass enclosed by a sphere with mean density $\Delta_c *\rho_c$, where $\Delta_c$ is the overdensity constant from~\citet{Brynorman1998} and $\rho_c$ is the critical density of the universe at the time calculated. The corresponding virial radius in TNG100 is given by \texttt{Group\_R\_TopHat200}.} 
 \begin{align*}
@@ -134,16 +107,17 @@ We require that subhalos constituting a pair meet a minimum subhalo mass criteri
     \Mhalo > 1\times10^{9}\Msun.
 \end{equation*}
 at the snapshot of consideration. 
-For TNG100, this ensures that subhalos are resolved into over 130 particles which should be robustly identified in the SUBFIND and SUBLINK catalogs.
-For each halo in the FoF group that passes the minimum subhalo mass criteria, we utilize the \texttt{SUBLINK} catalogs to find the peak halo mass of each subhalo \citep{RG2015}. 
+For TNG100, this ensures that subhalos are resolved into over 
+$\sim$100 particles, enough to robustly identify gravitationally bound subhalos in the \subfind{} and \sublink{} catalogs.
+For each halo in the FoF group that passes the minimum subhalo mass criteria, we utilize the \sublink{} catalogs to find the peak halo mass of each subhalo \citep{RG2015}. 
 
 Stellar masses are assigned to each subhalo in the FoF group using the abundance matching prescription of \citet{Moster2013}. 
 The peak halo mass and current redshift are used to calculate the stellar mass of each subhalo via the abundance matching prescription  $\ms{}=f(\Mpeak,z)$, where $z$ is the redshift of consideration.
 
-In \citet{Chamberlain2024}, the abundance matching prescription was sampled 1000 times for each subhalo to account for the spread in the Stellar Mass -- Halo Mass relation. 
-However, for the purposes of the present study, we only use the stellar masses given by the median of the abundance matching relationship. 
-This choice permits a roughly 1:1 monotonic relationship between stellar mass and peak halo mass, so that taking subsamples of the lowest stellar mass objects will result in a subsample with lower peak halo mass as well. % is this a good enough reason? 
-Additionally, ~\cite{Chamberlain2024} found that the spread in the number of pairs selected at a given redshift is small, such that we expect the spread on the timescale analysis to be dominated by the redshift spacing of the simulation. 
+In \chambe{}, the abundance matching prescription was sampled 1000 times for each subhalo to account for the spread in the Stellar Mass -- Halo Mass (SMHM) relation. 
+For the present study, we only use the stellar masses given by the median of the abundance matching relationship. 
+We expect that the spread of merger timescales from different orbital configurations, as well as the redshift spacing of the TNG100 snapshots, will dominate over uncertainties from the number of pairs in the catalog, which varied by $\sim3\%$ (as shown in Fig.~1 in \chambe{}). 
+% Since we will be following the orbits of selected pairs both backwards and forwards in time, the 
 
 Primary halos are defined as the subhalo with the highest stellar mass ($M_{*1}$) in their FoF group, and secondaries are defined as the second most massive subhalo with stellar mass $M_{*2}$. 
 Our sample of major pairs then consists of all pairs of primary and secondary halos with 
@@ -159,28 +133,24 @@ A subhalo can belong to different pairs at different redshifts.
 For example, the primary of a pair that merges at $z=2$ can be selected with a different secondary at $z=1$, constituting a new pair. 
 More detail regarding the uniqueness of pairs and orbits is discussed in~\ref{sec:methods-unique}.
 
-% i am removing the 10kpc component of this because I think it'd just be easier to handle those cases in the 
+% I removed the 10kpc component of this because I think it'd just be easier to handle those cases in the results sections or orbits section
 % Finally, we will only consider pairs that have physical separations of $\rsep>10\,\kpc$ at the snapshot of selection. 
 % The physical separation cut does not vary with redshift, and is the same for both low-mass and high-mass pairs. 
 
 The base sample of pairs used for this analysis then consists of the set of all low-mass and high-mass major pairs from each redshift of the TNG100 simulation. 
 
+\subsection{Mergers} \label{subsec:mergers}
+Here we describe how subhalo mergers are identified in the TNG simulations. 
+Note that this definition is specific to subhalo mergers and therefore results are not guaranteed to hold for galaxy mergers, especially in cases where subhalos and galaxies have different centers of mass. % might  note that this is discussed in more deets in discussion - I think Patton 2024 addresses this a bit?
+The primary and secondary subhalos of each pair have a `SubfindID' that is used to identify them in the \subfind{} merger tree catalogs, which contain information about every FoF group and subhalo at each redshift. 
+The \sublink{} catalogs track subhalos from one redshift to the next, and thus enable us to track subhalos both backwards and forwards in time from any given redshift. 
 
-
-\subsection{Mergers}
-% Plot \#1: Merger fraction either before or after orbits
-% Note that it is very interesting that dwarf pairs in the field have high merger fractions, while the likelihood of merger is very low in more dense environments (add citation).
-\label{subsec:mergers}
-The primary and secondary subhalos of each pair have a `SubfindID' that is used to identify them in the \texttt{Subfind} merger tree catalogs, which contain information about every FoF group and subhalo at each redshift. 
-The \texttt{SUBLINK} catalogs track subhalos from one redshift to the next, and thus enable us to track subhalos both backwards and forwards in time from any given redshift. 
-
-We utilize the \texttt{DescendantID} field of the \texttt{SUBLINK} catalogs to determine which pairs from our base sample merge before the end of the simulation (at $z=0$) and when the merger occurs. 
+We utilize the \texttt{DescendantID} field of the \sublink{} catalogs to determine which pairs from our base sample merge before the end of the simulation (at $z=0$) and when the merger occurs. 
 The \texttt{DescendantID} field provides the `SubhaloID'\footnote{Note that the `SubhaloID' is distinct from the `SubfindID', and is unique for every subhalo in the merger trees. 
-The \texttt{SUBLINK} catalogs provide the associated `SubfindID' of each subhalo.} of the subhalo's descendent in the next (or one of the following) snapshots, if it has one. 
-% By following the \texttt{DescendantID}, you follow a subhalo through all of it's mergers to the `root' of the merger tree.  
+The \sublink{} catalogs provide the associated `SubfindID' of each subhalo.} of the subhalo's descendent in the next (or one of the following) snapshots, if it has one. 
 
 In this analysis, a pair is classified as a merger if the primary and secondary subhalo share the same \texttt{DescendantID} at the same redshift. 
-This means that the primary and secondary subhalo have merged such that SUBFIND can no longer distinguish them as two separate halos, therefore yielding a single descendant subhalo.
+This means that the primary and secondary subhalo have merged such that \subfind{} can no longer distinguish them as two separate halos, therefore yielding a single descendant subhalo.
 If a pair consists of a primary and secondary that never share a \texttt{DescendantID} at a given redshift, the pair is defined as a `non-merger.'
 
 For each merging pair, we define the `merger redshift' as the redshift that immediately follows the first snapshot where the primary and secondary have the same \texttt{DescendantID}. 
@@ -206,18 +176,19 @@ In this example, we take $z=1.9$ to be the merger redshift.
 We extract orbits for all mergers and non-mergers in our base pair sample. 
 An orbit for a single pair is defined to be the physical separation between the primary and secondary subhalo as a function of redshift (or lookback time). 
 
-A given pair from the base sample at redshift $z_n$, which by definition passes all selection criteria at $z_n$, can be followed backwards and forwards in time using the \texttt{SUBLINK} merger trees.  
+A given pair from the base sample at redshift $z_n$, which by definition passes all selection criteria at $z_n$, can be followed backwards and forwards in time using the \sublink{} merger trees.  
 We track the positions of both the primary and secondary subhalo at each redshift and calculate the physical separations after accounting for the periodic boundary conditions of the simulation box.
-In cases where the primary or secondary does not have a defined position at a given redshift, we do not compute a value for the separation at that redshift.\footnote{If a subhalo is very small, or is passing through a more massive subhalo, and is unable to reach the density contrast required to be identified as an independent structure by the Subfind algorithm, it will not have a defined position in the Sublink catalogs. The sublink algorithm allows for subhalos to skip a single snapshot, and identifies the `skipped descendent' in the $S_{n+2}$ snapshot, so that the orbit can be evaluated before and after the skip occurs. See Sec.~3 in ~\citet{RG2015} for more details.}
+In cases where the primary or secondary does not have a defined position at a given redshift, we do not compute a value for the separation at that redshift.\footnote{If a subhalo is very small, or is passing through a more massive subhalo, and is unable to reach the density contrast required to be identified as an independent structure by the \subfind{} algorithm, it will not have a defined position in the \sublink{} catalogs. The \sublink{} algorithm allows for subhalos to skip a single snapshot, and identifies the `skipped descendent' in the $S_{n+2}$ snapshot, so that the orbit can be evaluated before and after the skip occurs. See Sec.~3 in ~\citet{RG2015} for more details.}
 
-In addition to the physical separation, we also calculate the scaled separation of a pair at each redshift. We use the definition of scaled separation from~\cite{Chamberlain2024}, where the physical separation is written instead as a fraction, $p$, of the virial radius $\rsep=p\Rvir$, where $\rsep$ is the physical separation in $\kpc$, and $\Rvir$ is the virial radius of the pair's FoF group.\footnote{Where the secondary is not in the same FoF group as the primary, the virial radius used to calculate the scaled separation will remain that of the primary's FoF group, which merging secondaries will eventually re-enter prior to merger.} 
+In addition to the physical separation, we also calculate the scaled separation of a pair at each redshift. We use the definition of scaled separation from~\cite{Chamberlain2024}, where the physical separation is written instead as a fraction, $p$, of the virial radius $\rsep=p\Rvir$, where $\rsep$ is the physical separation in $\kpc$, and $\Rvir$ is the virial radius of the pair's FoF group.\footnote{Given by \texttt{Group\_R\_TopHat200} in the group catalogs. Where the secondary is not in the same FoF group as the primary, the virial radius used to calculate the scaled separation will remain that of the primary's FoF group, which merging secondaries will eventually re-enter prior to merger.} 
 The $\Rvir$ of the pair's FoF group reasonably approximates the virial radius of a halo with a virial mass equal to the combined subhalo mass of the primary and secondary.
 This ``scaled separation" is, by construction, a function of mass and redshift, which will account for the mass difference between low-mass and high-mass pairs and for halo growth over time. 
 
-We collect the following data for each pair at each redshift where the primary and secondary are both defined: the virial mass of the primary's FoF group \texttt{Group\_M\_TopHat200}, the virial radius of the primary's FoF group \texttt{Group\_R\_TopHat200}, the physical separation (in $\kpc$), and the scaled separation (dimensionless).
+% We collect the following data for each pair at each redshift where the primary and secondary are both defined: the virial mass of the primary's FoF group \texttt{Group\_M\_TopHat200}, the virial radius of the primary's FoF group , the physical separation (in $\kpc$), and the scaled separation (dimensionless).
 
 \subsubsection{Defining Post-Infall}
-While the orbit of a pair may be calculated at very early times, we wish to constrain our orbital analysis to only physically associated pairs, and thus will not consider the orbit of a subhalo pair before they belong to the same FoF group. Specifically, we will consider only the ``post-infall" part of each pair's orbit. 
+While the orbit of a pair may be calculated at very early times, we wish to constrain our orbital analysis to only physically associated pairs, and thus will not consider the orbit of a subhalo pair before they belong to the same FoF group. 
+Specifically, we will consider only the ``post-infall" part of each pair's orbit. 
 
 We define the redshift of ``first infall" as the redshift of the first snapshot where the primary and secondary have the same parent FoF halo, and post-infall is all following redshifts starting with the redshift of first infall. 
 
@@ -244,7 +215,7 @@ Note that we do not split our non-merger category into fly-bys and potential fut
 Since we collect the orbit (the separation at every redshift where the primary and secondary both exist) for each pair at all redshifts, a singular orbit will be selected as many times as the number of redshifts (or snapshots) where that pair exists. However, we only want to keep a single instance of any given orbit in our catalog so we can track the merger timescale of the pair.
 
 To distinguish the collection of unique orbits, each pair is assigned a `pairkey' while constructing their orbit. 
-The pairkey is created by concatenating the earliest SubhaloID of the primary and secondary subhalo from the Sublink catalogs, and is unique for each pair of halos. 
+The pairkey is created by concatenating the earliest SubhaloID of the primary and secondary subhalo from the \sublink{} catalogs, and is unique for each pair of halos. 
 After each pair is assigned a unique pairkey, we only keep one instance of an orbit per pair to avoid double/multi-counting in our orbit catalog.
 
 Note that a single subhalo may be a member of many different pairs, but will only have one unique orbit per unique pair.
@@ -279,31 +250,35 @@ The collection of all unique orbits constitutes our orbit sample, and is the dat
     High-mass pairs have merger fractions greater than 0.9 for $z>1.1$, and low-mass pairs for $z>1.6$.
     %At $z>1$, the fraction of selected pairs that merge before $z=0$ is upwards of 80\% for both low mass and high mass isolated pairs. 
     The sharp decline of the merger fraction to 0 at low redshift is a non-physical feature of the simulation ending at $z=0$.
-    Only orbits with sufficiently short merger timescales will be able to merge at these redshifts.}
+    Only orbits with sufficiently short merger timescales will be able to merge at these redshifts.\kc{remove line at 0.9}}
     \label{fig:fmerge}
     \end{center}
 \end{figure}
 
 \subsection{Number of Pairs}
-We calculate the number of pairs (i.e. orbits in progress) by selecting all pairs at a given redshift that are post-infall and have not merged.
+We calculate the number of pairs (i.e. or equivalently the pairs' orbits) by selecting all pairs at a given redshift that have not merged.
 % The number of orbits that result in mergers at a later redshift are selected in the same way, excluding the non-merging orbits.
 %For example, the total number of orbits at $z=2$ includes the orbits of pairs that passed the selection criteria at \textit{any} redshift, provided they achieved first infall at $z\geq2$ and have a merger redshift $z<2$. 
-A single pair (or equivalently, the pair's orbit) may meet the conditions of being a "post-infall + pre-merger" pair for $z=0-3$, and will thus contribute to the number of pairs at all redshifts from $z=0-3$. 
+A single pair may meet the conditions of being a "post-infall and pre-merger" pair for $z=0-3$, and will thus contribute to the number of pairs at all redshifts from $z=0-3$. 
 
 Figure~\ref{fig:numorbits} shows the number of low-mass and high-mass pairs as a function of redshift from $z=0-6$. 
 Low-mass pairs (green solid line) are most numerous between $z=1.25-2$, while unique high-mass pairs (pink solid line) are most numerous between $z=0-1$.
 The dashed lines show the number of unique pairs that merge prior to $z=0$ for each sample. 
-The number of pairs that merge decreases to 0 at $z=0$ since many pairs that exist at low redshift will have merger timescales that span beyond the end of the simulation (i.e., $z=0$). 
+The number of pairs that merge decreases to zero at $z=0$ since many pairs that exist at low redshift will have merger timescales that span beyond the end of the simulation (i.e., $z=0$). 
 
-When a pair experiences first infall and thus begins to contribute to the number of pairs at later redshifts, we refer to such as pairs being ``added to the sample".
-Likewise, mergers at a given redshift will decrease the number of pairs counted at that redshift, since the pair is then post-merger and thus not included in the count.
-
+As more pairs experience first infall, the number of pairs increases with decreasing redshift. 
+On the other hand, as mergers occur, the number of pairs decreases with decreasing redshift, as pairs that have merged are not longer members of the pairs sample.
 % The difference between high and low mass
 The number of low-mass pairs continues to increase from $z=6$ until around $z=2$, at which point the number of added pairs at a given redshift slows. 
 The decrease in the number of pairs after $z=2$ means that the number of low-mass pairs that are merging at each redshift is larger than the rate at which pairs are being added to the sample.
 
 The number of high-mass pairs continues increasing until $z=1$, at which point it remains approximately constant from $z=0-1$ at $\sim1000$ pairs. 
-There is a slight decrease in the number of high mass pairs at the very lowest redshifts $z<0.1$, where the mergers begin to outnumber the added pairs at each redshift.
+There is a slight decrease in the number of high mass pairs at the very lowest redshifts $z<0.1$, where the mergers begin to outnumber the new pairs being added at each redshift.
+
+In Fig.~1 of \chambe{}, the number of low-mass pairs peaks (with $\sim3,000$ pairs) and begins to decrease at $z\sim2$, and the number of high-mass pairs is approximately constant between $z=0-1$, peaking at $\sim700$ pairs. 
+We find the same behavior with our pair sample, with low-mass pairs peaking at z=2 and high mass pairs leveling off between $z=0-1$. 
+However, in this study, the number of pairs at a given redshift is higher than in our previous work, since the orbit catalog includes a unique orbit for every pair from the previous work.
+For example, a pair that passes the \chambe{} selection criteria only at $z=1$ will only be counted as a pair at $z=1$ in the previous work, while in this study may be counted at many more redshifts since we can follow the orbit forwards and backwards in time. 
 
 
 \subsection{Merger Fraction}
@@ -312,17 +287,17 @@ As before, an orbit with first infall at $z=2$ and merger at $z=1$ will be inclu
 
 Figure~\ref{fig:fmerge} shows the fraction of isolated pairs of low-mass (green) and high-mass (pink) pairs that merge before the end of the simulation as a function of redshift. 
 At redshifts $z>2$, the merger fraction for low-mass and high-mass pairs is greater than $0.9$.
-The merger fraction for both mass ranges declines to $0$ at $z=0$, due to the very low fraction of pairs at low redshift ($z<1$) that have short enough merger timescales to merge before $z=0$.
+The merger fraction for both mass ranges declines to zero at $z=0$, due to the very low fraction of pairs at low redshift ($z<1$) that have short enough merger timescales to merge before $z=0$.
 
 % difference/similiarity between low and high
 The merger fraction of low-mass and high-mass pairs is the same from $z=0-0.5$ and $z>2.5$. 
 Between $z=0.5-2.5$, the high-mass merger fraction is higher than the low-mass merger fraction, and the knee of the merger fraction occurs at a lower redshift.
-This is likely because the number of low-mass pairs continues to increase before turning over and beginning to decrease at $z\sim2$.
-When the number of pairs stops increasing and beings to decrease, more pairs that will not have time to merge before $z=0$ are being added, and many merging pairs are being removed from the sample, thus decreasing the merger fraction. 
+This is likely because the number of low-mass pairs continues to increase before turning over and beginning to decrease at $z\sim2$, while the number of high-mass pairs continues increasing to $z\sim1$. 
+At these redshifts, the number of merging pairs begins declining rapidly. 
+% When the number of pairs stops increasing and beings to decrease, pairs that will not have time to merge before $z=0$ are being added, while many merging pairs are being removed from the sample, thus decreasing the merger fraction. 
 Since the turnover for the number of high-mass pairs occurs at a lower redshift, the knee of the merger fraction is likewise shifted to lower redshifts.
 
-Note that the merger fraction is a measure of the fraction of isolated pairs that merge before $z=0$. 
-It is not, however, a measure of the fraction of \textit{all} low-mass and high-mass pairs that will merge. 
+Note that the merger fraction is a measure of the fraction of isolated pairs that merge before $z=0$. It is not, however, a measure of the fraction of \textit{all} low-mass and high-mass pairs that will merge. 
 
 
 
@@ -359,249 +334,245 @@ It is not, however, a measure of the fraction of \textit{all} low-mass and high-
 \end{figure*}
 
 \section{Results: The Mass and Redshift Dependence of Merger Timescales}
-Using our sample of isolated low-mass and high-mass pairs in the TNG100 simulation, we calculate the merger timescales, or time until merger, for all of the merging pairs in our catalog. 
-In Sec.~\ref{sec:results-timevsep}, we explore how the merger timescale changes as a function of the separation of the pair across redshifts, and how the merger timescales differ between the low-mass and high-mass pairs. 
-In Sec.~\ref{sec:results-timevredshift}, we investigate the median time until merger for all post-infall and pre-merger isolated pairs as a function of redshift. 
-We will additionally examine the merger timescale's dependence on a variety of separation criteria. 
-Separation criteria are applied to pairs at each redshift independently, such that a pair in the $10-50\,\kpc$ bin at one redshift will not be part of the sample used at redshifts where its separation is $>50\,\kpc$.
+    Using our sample of isolated low-mass and high-mass pairs in the TNG100 simulation, we calculate the merger timescales, or time until merger, for all of the merging pairs in our catalog. 
+    The merger timescale of a pair is defined to be the amount of time that elapses in the simulation between the selected redshift and the merger redshift.\footnote{Since our orbits are only defined for a pair post-infall, the merger timescales will likewise only be calculated for pairs that are post-infall at the given separation.}
+    
+    In Sec.~\ref{sec:results-timevsep}, we explore how the merger timescale changes as a function of the separation of the pair across redshifts, and how the merger timescales differ between the low-mass and high-mass pairs. 
+    In Sec.~\ref{sec:results-timevredshift}, we investigate the median time until merger for all post-infall and pre-merger isolated pairs as a function of redshift. 
+    We will additionally examine the merger timescale's dependence on a variety of separation criteria. 
+    Separation criteria are applied to pairs at each redshift independently, such that a pair in the $10-50\,\kpc$ bin at one redshift will not be part of the sample used at redshifts where its separation is $>50\,\kpc$.
 
 
 
 
 \subsection{Separation Dependence of Merger Timescales}\label{sec:results-timevsep}
-% how we calculate for this section
-We calculate the time until merger as a function of separation for low-mass and high-mass pairs at a variety of redshifts from $z=0.5-6$. 
-Pairs with small separations may be undergoing a pericentric passage, or very close to merging if on a radial orbit.
-Binning the pairs by separation, we can study how the merger timescale changes for pairs at different points in their orbits. 
-
-% low mass example
-We bin our pair sample by merger timescale, in bins of $0.5\Gyr$, and separation in bins of width $10\,\kpc$.
-Figures~\ref{fig:timevssep-low} and~\ref{fig:timevssep-high} show the 2D distributions of time until merger vs. separation for low-mass and high-mass pairs at redshifts $z=(0.5,1,1.5,2,3,4,5,6)$. 
-The horizontal line in the first panel shows the time remaining in the simulation until $z=0$, above which no merging pairs exist.
-
-Fig.~\ref{fig:timevssep-low} presents a heatmap distribution of the density of low-mass pairs in merger timescale-separation space. 
-We find that the time until merger for low-mass pairs is positively correlated with the separation of the pair at each redshift. 
-However, the slope of the correlation decreases at higher redshifts.
-Pairs at $z=4$ and separations between $50-100\,\kpc$ tend to merge in less time than pairs with the same separations at $z=0.5$. 
-
-In addition, the spread of times until merger and separations is smaller at higher redshift. 
-The spread of merger timescales at $z=1$ goes from $0-8\,\Gyr$, while pairs at $z=4$ have merger timescales between $0-3\,\Gyr$, and likewise for the separations spanned by pairs at both redshifts. 
-This is due to the growth of halo size over time, since more pairs will be post-infall at lower redshifts where the virial radius of the FoF groups is larger. 
-
-Likewise, Fig.~\ref{fig:timevssep-high} presents the distribution for high-mass subhalos.
-The trends between merger timescale and separation are roughly the same as low-mass pairs, with a positive correlation between the two parameters that decreases in slope from low redshift to high redshift. 
-The high-mass pairs also have a larger spread in the distribution of merger timescales and separations at low redshift than at higher redshift.
-This is once again caused by the change in the FoF halo size over time. 
-
-% 
-\input{table-septime.tex}
-A compilation of more specific data is available in Table~\ref{tab:timevssepvsz}.
-Here, we list the fraction of post-infall and pre-merger pairs within three separation bins $(10-50, 10-70, 10-100)\,\kpc$, and the fraction of pairs within each of those separation bins that merge in four different timescale bins $(0-1, 1-2, 2-3, 3+)\,\Gyr$.
-We present these data for redshifts of $z=(0.5,1,1.5,2,3,4,5,6)$.
-
-Data from the table can be interpreted in the following way: at $z=1.5$, there are 5,787 pairs that are post-infall and merge prior to $z=0$. 
-Of those, 2,458 (42.47\%) have low separations between $\rsep=10-50\,\kpc$, and 2,207 of those $10-50\,\kpc$ pairs will merge in the next $2\,\Gyr$. 
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\columnwidth]{plots/bet-on-it/8_timescale_mod.png}
-    \caption{The median time until merger as a function of redshift for low-mass (green) and high-mass (pink) pairs. Shaded regions represent the 1st and 3rd quartile spread on the median. Pairs at each redshift are selected if they have experienced first infall and are pre-merger. 
+    % how we calculate for this section
+    We calculate the time until merger as a function of separation for low-mass and high-mass pairs at a variety of redshifts from $z=0.5-6$. 
+    % Pairs with small separations may be undergoing a pericentric passage, or very close to merging if on a radial orbit.
+    Binning the pairs by separation, we can study how the merger timescale changes for pairs at different points in their orbits. 
+    
+    % low mass example
+    We bin our pair sample by merger timescale, in bins of $0.5\Gyr$, and separation bins of $10\,\kpc$.
+    Figures~\ref{fig:timevssep-low} and~\ref{fig:timevssep-high} show the 2D distributions of merger timescale vs. separation for low-mass and high-mass pairs at redshifts $z=(0.5,1,1.5,2,3,4,5,6)$. 
+    The horizontal line in the first panel shows the time remaining in the simulation until $z=0$, above which no merging pairs exist. \kc{add to fig.}
+    
+    Fig.~\ref{fig:timevssep-low} presents a heatmap distribution of the density of low-mass pairs in merger timescale-separation space. 
+    We find that the time until merger for low-mass pairs is positively correlated with the separation of the pair at each redshift. 
+    However, the slope of the correlation decreases at higher redshifts.
+    Pairs at $z=4$ and separations between $50-100\,\kpc$ tend to merge in less time than pairs with the same separations at $z=0.5$. 
+    
+    In addition, the spread of times until merger and separations is smaller at higher redshift. 
+    The spread of merger timescales at $z=1$ goes from $0-8\,\Gyr$, while pairs at $z=4$ have merger timescales between $0-3\,\Gyr$. 
+    Likewise, the spread of separations at $z=1$ is $0-200\kpc$, but at $z=4$ the spread is smaller, between $10-125\kpc$. 
+    This is due to the growth of halos over time, such that more pairs are identified at low redshifts where the virial radius of FoF groups is larger. 
+    
+    Likewise, Fig.~\ref{fig:timevssep-high} presents the distribution for high-mass pairs.
+    The trends between merger timescale and separation are roughly the same as low-mass pairs, with a positive correlation between the two parameters that decreases in slope from low redshift to high redshift. 
+    The high-mass pairs also have a larger spread in the distribution of merger timescales and separations at low redshift than at higher redshift.
+    This is once again caused by the change in the FoF halo size over time. 
+    
     % 
-    The black dashed line shows a fraction of the Hubble time as a function of redshift, which bounds the median time until merger from $z=6$ to $z\sim0.5-0.75$.
-    The dotted black line shows the time to $z=0$ (the lookback time) as a function of redshift, which sets the upper bound for the time until merger that a merging pair can have. 
-    The median time until merger is similar for low-mass and high-mass pairs, and rises from $z=6$ to a peak at $z\sim0.75$, then decreases to $z=0$.}
-    \label{fig:timescales}
-\end{figure}
-
-\begin{figure*}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{plots/bet-on-it/3_time_til_merger.png}
-    \caption{(Top) The median time until merger as a function of redshift for low-mass (green) and high-mass (pink) pairs with 3D physical separations greater than $10\,\kpc$ and less than $(50,70,100,150,200,\mbox{and }300)\,\kpc$ from left to right. 
-    (Bottom) The median time until merger as a function of redshift for pairs with physical separations greater than $10\,\kpc$ and less than $(0.25, 0.5, 1, 1.5, 2,\mbox{and }2.5)\,\Rvir$ from left to right. 
-    % 
-    The time until merger increases from $z=4$ to $z\sim0.5-0.75$, at which point the time until merger decreases to zero since all low redshift mergers must have short merger timescales to merge before the end of the simulation at $z=0$. 
-    }
-    \label{fig:timescales-sep}
-\end{figure*} 
+    \input{table-septime.tex}
+    A compilation of more specific data is available in Table~\ref{tab:timevssepvsz}.
+    Here, we list the fraction of pairs within three separation bins $(10-50, 10-70, 10-100)\,\kpc$, and the fraction of pairs within each of those separation bins that merge in four different timescale bins $(0-1, 1-2, 2-3, 3+)\,\Gyr$.
+    We present these data for redshifts of $z=(0.5,1,1.5,2,3,4,5,6)$.
+    
+    Data from the table can be interpreted in the following way: at $z=1.5$, there are 5,787 pairs that are post-infall and merge prior to $z=0$. 
+    Of those, 2,458 (42.47\%) have low separations between $\rsep=10-50\,\kpc$, and 2,207 of those $10-50\,\kpc$ pairs will merge in the next $2\,\Gyr$. 
+    
+    \begin{figure}[htb]
+        \centering
+        \includegraphics[width=\columnwidth]{plots/bet-on-it/8_timescale_mod.png}
+        \caption{The median time until merger as a function of redshift for low-mass (green) and high-mass (pink) pairs. Shaded regions represent the 1st and 3rd quartile spread on the median. Pairs at each redshift are selected if they have experienced first infall and are pre-merger. 
+        % 
+        The black dashed line shows a fraction of the Hubble time as a function of redshift, which bounds the median time until merger from $z=6$ to $z\sim0.5-0.75$.
+        The dotted black line shows the time to $z=0$ (the lookback time) as a function of redshift, which sets the upper bound for the time until merger that a merging pair can have. 
+        The median time until merger is similar for low-mass and high-mass pairs, and rises from $z=6$ to a peak at $z\sim0.75$, then decreases to $z=0$.}
+        \label{fig:timescales}
+    \end{figure}
+    
+    \begin{figure*}[htb]
+        \centering
+        \includegraphics[width=\textwidth]{plots/bet-on-it/3_time_til_merger.png}
+        \caption{(Top) The median time until merger as a function of redshift for low-mass (green) and high-mass (pink) pairs with 3D physical separations greater than $10\,\kpc$ and less than $(50,70,100,150,200,\mbox{and }300)\,\kpc$ from left to right. 
+        (Bottom) The median time until merger as a function of redshift for pairs with physical separations greater than $10\,\kpc$ and less than $(0.25, 0.5, 1, 1.5, 2,\mbox{and }2.5)\,\Rvir$ from left to right. 
+        % 
+        The time until merger increases from $z=4$ to $z\sim0.5-0.75$, at which point the time until merger decreases to zero since all low redshift mergers must have short merger timescales to merge before the end of the simulation at $z=0$. 
+        }
+        \label{fig:timescales-sep}
+    \end{figure*} 
+    
 \subsection{Redshift Dependence of Merger Timescales}\label{sec:results-timevredshift}
-% The behavior of time until merger as a function of redshift for low-mass and high-mass pairs:
-% 1 - the full sample 
-% 2 - the physical and static kpc separation-selected sample
-% 3 - the mass and redshift evolving scaled separation-selected sample
-In this subsection, we study the merger timescale of low-mass and high-mass pairs as a function of redshift. 
-First, we consider the pairs sample as a whole, and quantify the median merger timescale for all low- and high-mass pairs that are post-infall and pre-merger for $z=0-6$. 
-We will then consider two different sets of separation criteria to create separation-selected subsamples.
-Since pair samples are typically picked via separation criteria, in both simulations and observations, we study the impact of different separation-based selection criteria on inferred merger timescales.
-
-Throughout, medians at each redshift are shown by solid pink and green lines, while the 1st and 3rd quartile spread on the median is shown by the shaded regions. 
-
-\subsubsection{Full sample}
-    We calculate the time until merger for all post-infall and pre-merger pairs at each redshift in the simulation from $z=0-6$, and quantify the median and spread on the merger timescale as a function of redshift. 
-    We include the full catalog of orbits at each redshift to calculate the merger timescale. 
-    % why do we want to consider the entire population of halos? why interesting?
+    % The behavior of time until merger as a function of redshift for low-mass and high-mass pairs:
+    % 1 - the full sample 
+    % 2 - the physical and static kpc separation-selected sample
+    % 3 - the mass and redshift evolving scaled separation-selected sample
+    In this subsection, we study the merger timescale of low-mass and high-mass pairs as a function of redshift. 
     
-    Figure~\ref{fig:timescales} presents the median of the time until merger for post-infall merging pairs from $z=0-6$. 
-    The 1st and 3rd quartiles are indicated with shaded regions. 
-    % low vs high
-    Low-mass merger timescales (green) and high-mass merger timescales (pink) are roughly equivalent at all redshifts. 
-    Since we have used the same selection procedure for both high-mass and low-mass pairs, assuming that the pair has experienced first infall, which implies that mergers don't proceed in fundamentally different ways at different mass scales. 
-    We explore this point further in Sections~\ref{sec:results-phys} and~\ref{sec:results-scal}.
+    First, we consider the pairs sample as a whole, and quantify the median merger timescale for all low- and high-mass pairs that are post-infall and pre-merger for $z=0-6$. 
+    We will then consider two different sets of separation criteria to create separation-selected subsamples.
+    Since pair samples are typically picked via separation criteria, in both simulations and observations, we study the impact of different separation-based selection criteria on inferred merger timescales.
     
-    % redshift evolution
-    The median time until merger is $\sim0.5-0.7\,\Gyr$ at $z\sim6$, then rises to a peak of $2.3-2.4\,\Gyr$ at $z\sim0.6$, then decreases to 0 at $z=0$.
-    The abrupt decrease to 0 from $z=0.6$ to $z=0$ is artificial rather than a true physical feature.
-    The majority of low redshift pairs will have merger timescales that span past the end of the simulation, since the time until the end of the simulation gets increasing small for smaller redshift. 
-    However, as $z\to0$, there is a also an increasingly small fraction of total pairs that still merge before $z=0$, as seen in Fig~\ref{fig:numorbits}. 
-    These mergers must then proceed on timescales less than the elapsed time difference between a given redshift and $z=0$. 
-    This is shown by the dotted black line on the left of Fig.~\ref{fig:timescales}, which shows the lookback time of the simulation as a function of redshift.\footnote{The lookback time at a given redshift $z_n$ is equivalent to the time elapsed between $z_n$ and $z=0$. Thus, merging pairs cannot have merger timescales larger than the lookback time of the simulation at a given redshift.} % this could go in the methods section, if we think it's more necessary there. I don't mind it here for more detail
+    Each merging orbit is defined to start at first infall, and 
     
-    In addition, we show 
-    \begin{equation}
-    \frac{2}{5}*H(z)^{-1}
-    \end{equation}
-    given the Hubble parameter $H(z)$ as the dashed black line that sits above the median time until merger.\footnote{$H(z)$ is calculated using the same cosmology as the TNG100 simulation. Specifically, $\Omega_M=0.31$ and $\Omega_{\Lambda}=0.69$.}
-    We also show the age of the simulation as a function of redshift (dashed grey). 
-    These lines show XXX...
-    % so far missing the WHY we are comparing to the hubble time or age vs z
-    % look at Hopkins dynamical friction/merger timescale plot.
 
 
-\subsubsection{Physical Separation Selected Pairs }
-\label{sec:results-phys}
-    Both separation selected samples have a lower separation criteria of $10\,\kpc$, to limit the impact of subhalos becoming indistinguishable in the \texttt{SUBFIND} catalogs.
-    This lower separation criteria is also commonly applied to observationally selected pairs in studies of merger fractions and merger rates (see Sec.~\ref{sec:discussion} for further detail).
+    \subsubsection{Full sample}
+        We calculate the merger timescales for pairs at each redshift in the simulation from $z=0-6$, and quantify the median and spread on the merger timescale as a function of redshift. 
+        We include the full catalog of merging orbits at each redshift to calculate the merger timescale. 
+        % why do we want to consider the entire population of halos? why interesting?
+        
+        Figure~\ref{fig:timescales} presents the median of the time until merger for post-infall merging pairs from $z=0-6$. 
+        The 1st and 3rd quartiles are indicated with shaded regions. 
+        % low vs high
+        Low-mass merger timescales (green) and high-mass merger timescales (pink) are roughly equivalent at all redshifts, which implies that mergers do not proceed in fundamentally different ways at different mass scales. 
+        We explore this point further in Sections~\ref{sec:results-phys} and~\ref{sec:results-scal}.
+        
+        % redshift evolution
+        The median time until merger is $\sim0.5-0.7\,\Gyr$ at $z\sim6$, then rises to a peak of $2.3-2.4\,\Gyr$ at $z\sim0.6$, then decreases to 0 at $z=0$.
+        The abrupt decrease to 0 from $z\sim0.6$ to $z=0$ is artificial rather than a true physical feature. 
+        As $z\to0$, there is an increasingly small fraction of pairs that merge before $z=0$, as seen by the dashed lines in Fig~\ref{fig:numorbits}. 
+        These mergers must then proceed on timescales less than the elapsed time difference between a given redshift and $z=0$. 
+        This is shown by the dotted black line on the left of Fig.~\ref{fig:timescales}, which shows the lookback time of the simulation as a function of redshift.\footnote{The lookback time at a given redshift $z_n$ is equivalent to the time elapsed between $z_n$ and $z=0$. Thus, merging pairs cannot have merger timescales larger than the lookback time of the simulation at a given redshift.} % this could go in the methods section, if we think it's more necessary there. I don't mind it here for more detail
+        
+        In addition, we show 
+        \begin{equation}
+        \frac{2}{5}*H(z)^{-1}
+        \end{equation}
+        given the Hubble parameter $H(z)$ as the dashed black line that sits above the median time until merger.\footnote{$H(z)$ is calculated using the same cosmology as the TNG100 simulation. Specifically, $\Omega_M=0.31$ and $\Omega_{\Lambda}=0.69$.}
+        We also show the age of the simulation as a function of redshift (dashed grey). 
+        These lines show XXX...
+        % so far missing the WHY we are comparing to the hubble time or age vs z
+        % look at Hopkins dynamical friction/merger timescale plot.
     
-    The first set of separation criteria will select only pairs at a given redshift that have separations greater than $10\,\kpc$ and less than $[50, 70, 100, 150, 200, \mbox{and }300]\kpc$, to create six pair subsamples. 
-    These separation criteria do not vary as a function of time or mass, and are applied equivalently to the low-mass and high-mass samples at all redshifts. 
-    We note that an orbit in the separation bin $10-50\,\kpc$ at $z=2$ will not necessarily be in that same bin at other redshifts. 
-    Rather, the separation criteria are applied independently at each redshift. 
-    
-    % figure description 
-    The top panel of Fig.~\ref{fig:timescales-sep} shows the time until merger versus redshift for each of the low-mass (green) and high-mass (pink) pair subsamples with separations less than the physical separation listed above each column.  
-    % redshift evolution of each subsample
-    We first note that the merger timescale peaks around redshift $z\sim0.5$ for all low-mass and high-mass subsamples. 
-    In addition, all subsamples show the same decline of mean merger time as $z\to0$, as discussed in the previous section. 
-    These traits were also present in Fig.~\ref{fig:timescales}, so they are features that are roughly independent of a separation criteria.
-    As the selection criteria gets larger, the subsample contains more of the full sample, eventually including the full sample with a large enough separation selection.
-    
-    % low mass vs high mass
-    The subsamples with maximum separations of $[50, 70, \mbox{and } 100]\,\kpc$ result in median merger timescales that are higher for low-mass pairs than high-mass pairs at all redshifts. 
-    The difference in the median time until merger is up to $0.8\,\Gyr$ longer for low-mass pairs than high-mass pairs at the same redshift for the same separation criteria. 
-    The offset between the low-mass and high-mass merger timescale decreases for large enough physical separation criteria. 
-    In the rightmost top panel, the median merger times overlap almost identically for $z=0-0.5$ and $z>1.5$, almost mimicking our findings from the full sample analysis. 
-    
-    % impact of the separation criteria
-    When the maximum separation is increased (from left to right), more of the full sample is being used in the calculation for the mean merger timescale. 
-    Indeed, the merger timescale for both low-mass and high-mass pairs increases with an increasing maximum separation cut.  
-    This follows directly from Sec.~\ref{sec:results-timevsep}, where we found that the time until merger is positively correlated with increasing separation for all pairs. 
-    Thus, including a higher fraction of larger-separation systems in our merger time calculation tends to increase the median time until merger. 
-    
-    The median merger timescale for low-mass pairs does not change significantly for any separation criteria $>150\,\kpc$. 
-    On the otherhand, high-mass pairs tend to see an increase in the merger timescale for each larger separation cut. 
-    This is because selecting all pairs with $\rsep<200\,\kpc$ in a low-mass system is including a larger volume of the FoF halo, and thus a more complete selection of the full sample.
-    High-mass pairs tend to have higher separations than low-mass pairs, as show in~\ref{sec:results-timevsep}. 
 
-\subsubsection{Scaled Separation Selected Pairs}
-\label{sec:results-scal}
-    We calculate the merger timescales for six additional subsamples of pairs, this time applying separation criteria that scale with both redshift and mass.
-    The scaled separation, which we define in~\ref{sec:methods},  is the separation of a pair divided by the virial radius of the pair's FoF group, $\Rvir$. 
-    The scaled separation selected pairs have separations greater than $10\,\kpc$ and less than $<[0.25, 0.5, 1, 1.5, 2, 2.5]\,\Rvir$. 
-    As in the previous section, the selection criteria are applied at each redshift independently. 
-    
-    As detailed in \chambe{}, the median virial radius for low-mass FoF groups at $z=[0,1,2,3,4]$ is approximately $[134, 85, 59, 43, 33]\,\kpc$, and for high-mass FoF groups is approximately $[348, 206, 134, 97, 76]\,\kpc$.
-    Thus, choosing a scaled separation cut of $<1\,\Rvir$ at $z=1$ will select high-mass pairs with separations $\lesssim205\,\kpc$ and low-mass pairs with separations $\lesssim85\,\kpc$.
-    
-    % figure description 
-    The bottom panel of Fig.~\ref{fig:timescales-sep} shows the median time until merger versus redshift for low-mass (green) and high-mass (pink) pair subsamples with scaled separations less than those listed at the top of each plot. 
-    We find that the median time until merger at $z=1$ is $[0.64, 0.94,1.25,1.51-1.58,1.76-1.91,1.91-2.05]\,\Gyr$ for each scaled separation cut respectively, for both low-mass and high-mass samples. %\kc{gonna have to triple check this cause I get the SAME median time til merger for low and high mass for Rvir 0.25, 0.5, and 1, down to like 14 decimals...}
-    
-    % redshift evolution of each subsample
-    Similar to the static physical separation-selected subsamples in the top panel, the median time until merger starts off small at $z>4$, then increases to a peak around $z\sim0.5$, before quickly decreasing to 0 at $z=0$. 
-    Additionally, the median time until merger at a given redshift increases for separation criteria that include a larger fraction of the virial radius, and thus larger separation pairs. 
-    
-    % low mass vs high mass
-    However, quite unlike the physical separation selected subsamples in the top panels, using a scaled separation criteria results in nearly identical median merger timescales for low-mass and high-mass pairs at all redshifts.
-    The low-mass and high-mass merger timescales increase with each larger scaled separation cut, but recover the behavior of the full sample by $<2\,\Rvir$.
-    
-    In addition, the slope of the time until merger as a function of redshift for $z>0.5$ is steeper for high-mass pairs in the scaled separation subsamples than the physical separation subsamples.
-    This is especially noticeable in the first panel of both the top and bottom rows, where the merger timescale of high-mass pairs is approximately flat for $<50\,\kpc$. 
+    \subsubsection{Physical Separation Selected Pairs }
+    \label{sec:results-phys}
+        Both separation selected samples have a lower separation criteria of $10\,\kpc$, to limit the impact of subhalos becoming indistinguishable in the \subfind{} catalogs.
+        This lower separation criteria is also commonly applied to observationally selected pairs in studies of merger fractions and merger rates (see Sec.~\ref{sec:discussion} for further detail).
+        
+        The first set of separation criteria will select only pairs at a given redshift that have separations greater than $10\,\kpc$ and less than $[50, 70, 100, 150, 200, \mbox{and }300]\kpc$, dividing the sample into six pair subsamples. 
+        These separation criteria do not vary as a function of time or mass, and are applied equivalently to the low-mass and high-mass samples at all redshifts. 
+        We note that an orbit in the separation bin $10-50\,\kpc$ at $z=2$ will not necessarily be in that same bin at other redshifts. 
+        Rather, the separation criteria are applied independently at each redshift. 
+        
+        % figure description 
+        The top panel of Fig.~\ref{fig:timescales-sep} shows the time until merger versus redshift for each of the low-mass (green) and high-mass (pink) pair subsamples with separations less than the physical separation listed above each column.  
+        % redshift evolution of each subsample
+        We first note that the merger timescale peaks around redshift $z\sim0.5$ for all low-mass and high-mass subsamples. 
+        In addition, all subsamples show the same decline of mean merger time as $z\to0$, as discussed in the previous section. 
+        These traits were also present in Fig.~\ref{fig:timescales}, so they are features that are roughly independent of a separation criteria.
+        As the selection criteria gets larger, the subsample contains more of the full sample, eventually including the full sample at large enough separations.
+        
+        % low mass vs high mass
+        The subsamples with maximum separations of $[50, 70, \mbox{and } 100]\,\kpc$ result in median merger timescales that are higher for low-mass pairs than high-mass pairs at all redshifts. 
+        The difference in the median time until merger is up to $0.8\,\Gyr$ longer for low-mass pairs than high-mass pairs at the same redshift for the same separation criteria. 
+        The offset between the low-mass and high-mass merger timescale decreases for each successive separation cut, which will each include pairs with larger separation. 
+        In the rightmost top panel, the median merger times overlap almost identically for $z=0-0.5$ and $z>1.5$, almost mimicking our findings from the full sample analysis. 
+        
+        % impact of the separation criteria
+        When the maximum separation is increased (from left to right), more of the full sample is used in the calculation for the median merger timescale. 
+        Indeed, the merger timescale for both low-mass and high-mass pairs increases with an increasing maximum separation cut.  
+        This follows directly from Sec.~\ref{sec:results-timevsep}, where we found that the time until merger is positively correlated with increasing separation for all pairs. 
+        Thus, including a higher fraction of larger-separation systems in our merger time calculation tends to increase the median time until merger. 
+        
+        The median merger timescale for low-mass pairs does not change significantly for any separation criteria $>150\,\kpc$. 
+        On the other hand, high-mass pairs tend to see an increase in the merger timescale for each larger separation cut. 
+        This is because selecting all pairs with $\rsep<200\,\kpc$ in a low-mass system is including a larger volume of the FoF halo, and thus a more complete selection of the full sample.
+        High-mass pairs tend to have higher separations than low-mass pairs, as show in~\ref{sec:results-timevsep}. 
 
-
+    \subsubsection{Scaled Separation Selected Pairs}
+    \label{sec:results-scal}
+        We calculate the merger timescales for six additional subsamples of pairs, this time applying separation criteria that scale with both redshift and mass.
+        The scaled separation, which we define in Section~\ref{sec:methods},  is the separation of a pair divided by the virial radius of the pair's FoF group, $\Rvir$. 
+        The scaled separation selected pairs have separations greater than $10\,\kpc$ and less than $<[0.25, 0.5, 1, 1.5, 2, 2.5]\,\Rvir$. 
+        As in the previous section, the selection criteria are applied at each redshift independently. 
+        
+        As detailed in \chambe{}, the median virial radius for low-mass FoF groups at $z=[0,1,2,3,4]$ is approximately $[134, 85, 59, 43, 33]\,\kpc$, and for high-mass FoF groups is approximately $[348, 206, 134, 97, 76]\,\kpc$.
+        Thus, choosing a scaled separation cut of $<1\,\Rvir$ at $z=1$ will select high-mass pairs with separations $\lesssim205\,\kpc$ and low-mass pairs with separations $\lesssim85\,\kpc$.
+        
+        % figure description 
+        The bottom panel of Fig.~\ref{fig:timescales-sep} shows the median time until merger versus redshift for low-mass (green) and high-mass (pink) pair subsamples with scaled separations less than those listed at the top of each plot. 
+        We find that the median time until merger at $z=1$ is $[0.64, 0.94,1.25,1.51-1.58,1.76-1.91,1.91-2.05]\,\Gyr$ for each scaled separation cut respectively, for both low-mass and high-mass samples. %\kc{gonna have to triple check this cause I get the SAME median time til merger for low and high mass for Rvir 0.25, 0.5, and 1, down to like 14 decimals...}
+        
+        % redshift evolution of each subsample
+        Similar to the static physical separation-selected subsamples in the top panel, the median time until merger starts off small at $z>4$, then increases to a peak around $z\sim0.5$, before quickly decreasing to 0 at $z=0$. 
+        Additionally, the median time until merger at a given redshift increases for separation criteria that include a larger fraction of the virial radius, and thus larger separation pairs. 
+        
+        % low mass vs high mass
+        However, quite unlike the physical separation selected subsamples in the top panels, using a scaled separation criteria results in nearly identical median merger timescales for low-mass and high-mass pairs at all redshifts.
+        The low-mass and high-mass merger timescales increase with each larger scaled separation cut, but recover the behavior of the full sample by $<2\,\Rvir$.
+        
+        In addition, the slope of the time until merger as a function of redshift for $z>0.5$ is steeper for high-mass pairs in the scaled separation subsamples than the physical separation subsamples.
+        This is especially noticeable in the first panel of both the top and bottom rows, where the merger timescale of high-mass pairs is approximately flat for $<50\,\kpc$. 
+    
+    
 
 % ##################
 % Discussion section
 \section{Discussion} \label{sec:discussion}
-We have calculated the merger timescales, or time until merger, for a sample of low-mass and high-mass pairs that have experienced first infall but not yet merged, to ensure that they are physically collocated.
-In this section, we will explore the implications and broader impacts of our findings, and put our study in context with previous work. 
-%In Sec.~\ref{}, etc...
-
-\begin{itemize}
-    % \item Implications for 
-    \item Sec 1: Comparison to previous works 
+    We have calculated the merger timescales, or time until merger, for a sample of low-mass and high-mass pairs that have experienced first infall but not yet merged, to ensure that they are physically collocated.
+    In this section, we will explore the implications and broader impacts of our findings, and put our study in context with previous work. 
+    %In Sec.~\ref{}, etc...
     
-    Subsec 1: merger fraction studies
-    %Why did we pick the separation cuts that we did? 
-    \begin{itemize} 
-        \item What other studies have looked at merger fractions in hydro simulations, specifically? 
-        \item Have they studied merger fractions as a function of mass and redshift? What did they find?
-        \item What is unique about our study?
-        \item Were low-mass pairs expected to have such high merger rates in isolated environments? 
-        \item Are comparisons with previous works fair, or are they not really comparable?
-        \item specific papers: Ventou 2017
-    \end{itemize}
-
-    Subsec 2: existing merger timescale studies
-    \begin{itemize} 
-        \item What other studies have looked at merger timescales in hydro simulations? 
-        \item Have they studied merger timescales as a function of mass and redshift? 
-        \item What is unique about our study?
-        \item Do our findings agree? 
-        \item specific papers: Hopkins 2007,
-    \end{itemize}
-    \item Sec. 2: Implications for observational merger fractions and merger rates
     \begin{itemize}
-        \item How did we motivate separation criteria?(motivated already in Chambe+ 2024, restate here about close pair definitions from lit.)
-        \item Pair fractions can vary wildly depending on separation criteria
-        \item This is important too for merger rates, since they are a function of pair fractions and merger timescales, and you should really be selecting pairs at each stage as self-consistently as possible
-        \item What is our suggestion moving forwards?
-        \item specific papers: Lotz 2011, 
+        % \item Implications for 
+        \item Sec 1: Comparison to previous works: merger fraction/timescale studies
+        %Why did we pick the separation cuts that we did? 
+        \begin{itemize} 
+            \item What other studies have looked at merger fractions/timescales in hydro simulations, specifically? 
+            \item Have they studied merger fractions as a function of mass and redshift? What did they find?
+            \item Were low-mass pairs expected to have such high merger rates in isolated environments? 
+            \item Have they studied merger timescales as a function of mass and redshift? 
+            \item What is unique about our study?
+            \item Are comparisons with previous works fair, or are they not really comparable?
+            \item specific papers: Ventou 2017, Hopkins 2007
+        \end{itemize}
+
+        \item Sec. 2: Implications for observational merger fractions and merger rates
+        \begin{itemize}
+            \item How did we motivate separation criteria?(motivated already in Chambe+ 2024, restate here about close pair definitions from lit.)
+            \item Pair fractions can vary wildly depending on separation criteria
+            \item This is important too for merger rates, since they are a function of pair fractions and merger timescales, and you should really be selecting pairs at each stage as self-consistently as possible
+            \item What is our suggestion moving forwards?
+            \item specific papers: Lotz 2011, 
+        \end{itemize}
+        \item Sec 3: The functional form of the merger timescale
+        \begin{itemize}
+            \item What can we say about the fact that the merger timescales follow a $(1+z)^{-1}$ relation at $z>0.5-1$? Physical explanation for this behaviour? 
+            \item Scaled separation criteria are akin to picking the same fraction of the total volume of a FoF group, regardless of what redshift it is at, not what mass it has, so it may not be surprising that we got what we did in re: the scaled separation being better, but finding the SAME merger timescales for hi and low is interesting!
+            \item Maybe something to consider in this section: For things that don't merge, what's... going on? 
+            \item relevant papers: 
+        \end{itemize}
     \end{itemize}
-    \item Sec 3: The functional form of the merger timescale
-    \begin{itemize}
-        \item What can we say about the fact that the merger timescales follow a $(1+z)^{-1}$ relation at $z>0.5-1$? Physical explanation for this behaviour? 
-        \item Scaled separation criteria are akin to picking the same fraction of the total volume of a FoF group, regardless of what redshift it is at, not what mass it has, so it may not be surprising that we got what we did in re: the scaled separation being better, but finding the SAME merger timescales for hi and low is interesting!
-        \item Maybe something to consider in this section: For things that don't merge, what's... going on? 
-        \item relevant papers: 
-    \end{itemize}
-\end{itemize}
-
-Bring up assumption of isolation criteria and it's drawbacks and strengths.
-Reiterate that our findings are for isolated pairs. 
-
-
-
+    
+    Bring up assumption of isolation criteria and it's drawbacks and strengths.
+    Reiterate that our findings are for isolated pairs. 
+    
+    
+    
 \section{Summary and Conclusions}
-% what we did and how
-$<$Longer summary of what we did here$>$
-
-% set of conclusions from results
-Our main findings are as follows: 
-\begin{itemize}
-    \item for a given physical separation (such as 100kpc), high-mass pairs have shorter merger timescales than low-mass pairs. 
-    \item the median time until merger for the full sample of low and high-mass pairs increases as $\sim(1+z)^{-1}$ from $z=6$ to $z\sim0.75$. it then decreases to 0 at low redshifts, with an upper bound set by the time remaining in the simulation before $z=0$. The decrease in the merger time at low redshifts is artificial and not representative of the true merger timescales that pairs at $z=0$ will have.
-    \item separation criteria that include larger separations will increase the median time until merger.
-    \item static physical separation-selected subsamples of low- and high-mass pairs have different median merger timescales.
-    \item scaled separation-selected subsamples yield nearly identical median merger timescales for low-mass and high-mass pairs at all redshifts. 
-\end{itemize}
-
-% set of conclusions for discussion
-- We find that the merger timescale of low-mass or high-mass merging pairs is sensitive to the selection criteria that are used to define the pair sample.\\
-
-- We recommend that future studies that seek to compare or compute pair fractions, merger fractions, merger timescales, or merger rates, define selected pair samples using separation criteria that evolve with redshift and mass. 
-
-- Why is this important? Cause future studies are gonna get so many pairs, especially low mass, and now we have a framework to compare low and high mass pairs in a variety of ways, from pair fractions to merger fractions to merger timescales! Woo!
-
-
+    % what we did and how
+    $<$Longer summary of what we did here$>$
+    
+    % set of conclusions from results
+    Our main findings are as follows: 
+    \begin{itemize}
+        \item for a given physical separation (such as 100kpc), high-mass pairs have shorter merger timescales than low-mass pairs. 
+        \item the median time until merger for the full sample of low and high-mass pairs increases as $\sim(1+z)^{-1}$ from $z=6$ to $z\sim0.75$. it then decreases to 0 at low redshifts, with an upper bound set by the time remaining in the simulation before $z=0$. The decrease in the merger time at low redshifts is artificial and not representative of the true merger timescales that pairs at $z=0$ will have.
+        \item separation criteria that include larger separations will increase the median time until merger.
+        \item static physical separation-selected subsamples of low- and high-mass pairs have different median merger timescales.
+        \item scaled separation-selected subsamples yield nearly identical median merger timescales for low-mass and high-mass pairs at all redshifts. 
+    \end{itemize}
+    
+    % set of conclusions for discussion
+    - We find that the merger timescale of low-mass or high-mass merging pairs is sensitive to the selection criteria that are used to define the pair sample.\\
+    
+    - We recommend that future studies that seek to compare or compute pair fractions, merger fractions, merger timescales, or merger rates, define selected pair samples using separation criteria that evolve with redshift and mass. 
+    
+    - Why is this important? Cause future studies are gonna get so many pairs, especially low mass, and now we have a framework to compare low and high mass pairs in a variety of ways, from pair fractions to merger fractions to merger timescales! Woo!
+    
+    
 
 
 % ** 
