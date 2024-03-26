@@ -355,43 +355,33 @@ Note that the merger fraction defined here is a measure of the fraction of isola
 % ###########################################################################################
 % Results I
 % ###########################################################################################
-\begin{figure*}[htb]
-    \begin{center}
-    \includegraphics[width=0.8\textwidth]{plots/bet-on-it/8_2Dhist.png}
-    \caption{\kc{(and add number of pairs at that redshift?) Add low/high label somewhere, is the lower sep set to 10kpc?} The distribution of times until merger for low-mass pairs as a function of physical separation at $z=0.5,1,1.5,2,3,\mbox{and }4$. 
-    There is a positive correlation between separation at the selected redshift and the time until merger. 
-    Of orbit-selected merging pairs at $z=1$, the majority are found with separations $\rsep<100\,\kpc$, and will merge within $3-4\, \Gyr$. 
-    Merger times are longer for lower redshift pairs, and the distribution of separations is larger.
-    The lowest separation pairs have the shortest merger timescales.
-    This plot can be used to get estimates for the merger timescale of an isolated low-mass pair at a given redshift. For example, a low-mass pair at $z=2$ with $\rsep\sim 75\,\kpc$ will merge in $0-6\,\Gyr$, with a most likely time to merger of around $2\Gyr$.
-    \kc{add z=5, z=6, add horizontal line for the time remaining in the sim in panel 1}
-    }
-    \label{fig:timevssep-low}
-    \end{center}
-\end{figure*}
+
 
 \begin{figure*}[htb]
     \begin{center}
-    \includegraphics[width=0.7\textwidth]{plots/bet-on-it/3_Timevssephigh-2d.png}
-    \caption{\kc{Add z=5, z=6 panels. Add colorbar. Add low/high label somewhere, check the lower sep set to 10kpc?} The distribution of times until merger for high-mass pairs as a function of physical separation at $z=0.5,1,1.5,2,3,\mbox{and }4$.
-    Similar to the low-mass pairs, there is a positive correlation between the separation of a merging pair at a given redshift and the time until merger, with the lowest separation pairs tending to have the shortest time until merger.
-    Of orbit-selected merging pairs at $z=1$, the majority are found with separations $\rsep<200\,\kpc$, and will merge within $0-7\, \Gyr$. 
-    This plot can be used to get estimates for the merger timescale of an isolated high-mass pair at a given redshift. 
-    For example, a high-mass pair at $z=2$ with $\rsep\sim 150\,\kpc$ will merge in $0.5-4\,\Gyr$, with a most likely time to merger of around $1.5-2\Gyr$.
+    \includegraphics[width=0.75\textwidth]{plots/bet-on-it/8_2Dhist.png}
+    \caption{The distribution of times until merger for low-mass (top) and high-mass (bottom) pairs as a function of physical separation at $z=0.5,1,1.5,2,3,4,5\mbox{and }6$. 
+    There is a positive correlation between separation at the selected redshift and the time until merger. 
+    The lowest separation pairs tend to have the shortest merger timescales.
+    Of low-mass pairs at $z=1$, the majority are found with separations $\rsep<100\,\kpc$, and will merge within $3-4\, \Gyr$, while high-mass pairs have separations $\rsep<200\,\kpc$, and will merge within $0-7\, \Gyr$. 
+    Merger times are longer for lower redshift pairs, and the distribution of separations is larger.
+    This plot can be used to get estimates for the merger timescale of an isolated pair at a given redshift. 
+    For example, a low-mass pair at $z=2$ with $\rsep\sim 75\,\kpc$ will merge in $0-6\,\Gyr$, with a most likely time to merger of around $2\Gyr$.
+    On the other hand, a high-mass pair at $z=2$ with $\rsep\sim 75\,\kpc$ will merge in $0-2\,\Gyr$, with a most likely time to merger of around $0-1\Gyr$.
     }
-    \label{fig:timevssep-high}
+    \label{fig:2dhist}
     \end{center}
 \end{figure*}
 
 \section{Results: The Mass and Redshift Dependence of Merger Timescales}
     Using our sample of isolated low-mass and high-mass pairs in the TNG100 simulation, we calculate the merger timescales, or time until merger, for all of the merging pairs in our catalog. 
-    The merger timescale of a pair is defined to be the amount of time that elapses in the simulation between the selected redshift and the merger redshift.\footnote{Since our orbits are only defined for a pair post-infall, the merger timescales will likewise only be calculated for pairs that are post-infall at the given separation.}
+    The merger timescale of a pair is defined to be the amount of time that elapses in the simulation between the redshift at which pairs are selected and the merger redshift.\footnote{Since our orbits are only defined after infall, the merger timescales will likewise only be calculated for pairs that are post-infall at the given separation.}
+    Only the merging pairs will be considered for the remainder of the analysis. 
     
     In Sec.~\ref{sec:results-timevsep}, we explore how the merger timescale changes as a function of the separation of the pair across redshifts, and how the merger timescales differ between the low-mass and high-mass pairs. 
-    In Sec.~\ref{sec:results-timevredshift}, we investigate the median time until merger for all post-infall and pre-merger isolated pairs as a function of redshift. 
+    In Sec.~\ref{sec:results-timevredshift}, we investigate the median time until merger for all isolated pairs as a function of redshift. 
     We will additionally examine the merger timescale's dependence on a variety of separation criteria. 
     Separation criteria are applied to pairs at each redshift independently, such that a pair in the $10-50\,\kpc$ bin at one redshift will not be part of the sample used at redshifts where its separation is $>50\,\kpc$.
-
 
 
 
@@ -399,27 +389,23 @@ Note that the merger fraction defined here is a measure of the fraction of isola
     % how we calculate for this section
     We calculate the time until merger as a function of separation for low-mass and high-mass pairs at a variety of redshifts from $z=0.5-6$. 
     % Pairs with small separations may be undergoing a pericentric passage, or very close to merging if on a radial orbit.
-    Binning the pairs by separation, we can study how the merger timescale changes for pairs at different points in their orbits. 
+    Binning the pairs by separation, we can study how the merger timescale changes for pairs selected at different points in their orbits. 
     
     % low mass example
-    We bin our pair sample by merger timescale, in bins of $0.5\Gyr$, and separation bins of $10\,\kpc$.
-    Figures~\ref{fig:timevssep-low} and~\ref{fig:timevssep-high} show the 2D distributions of merger timescale vs. separation for low-mass and high-mass pairs at redshifts $z=(0.5,1,1.5,2,3,4,5,6)$. 
-    The horizontal line in the first panel shows the time remaining in the simulation until $z=0$, above which no merging pairs exist. \kc{add to fig.}
+    We bin our pair sample by merger timescale, in bins of $0.5\Gyr$, and separation bins of $20\,\kpc$, and only consider the pairs with separations $\rsep>10\kpc$.
+    Figure~\ref{fig:2dhist} shows a heatmap distribution of pairs as a function of merger timescale vs. separation for low-mass (top) and high-mass (bottom) pairs at redshifts $z=(0.5,1,1.5,2,3,4,5,6)$. 
+    The colorbars to the right of each figure show the percentage of the population of pairs at that redshift that are in each bin, and the number of pairs at each redshift is shown by the number in the bottom right corner of each panel.
+    The horizontal line in the first panel shows the time remaining in the simulation until $z=0$, above which no merging pairs exist.
     
-    Fig.~\ref{fig:timevssep-low} presents a heatmap distribution of the density of low-mass pairs in merger timescale-separation space. 
-    We find that the time until merger for low-mass pairs is positively correlated with the separation of the pair at each redshift. 
-    However, the slope of the correlation decreases at higher redshifts.
-    Pairs at $z=4$ and separations between $50-100\,\kpc$ tend to merge in less time than pairs with the same separations at $z=0.5$. 
+    We find that the time until merger for low-mass and high-mass pairs is positively correlated with the separation of the pair at each redshift. 
+    However, the slope of this correlation decreases at higher redshifts.
+    Pairs at $z=4$ with separations between $50-100\,\kpc$ tend to merge in less time than pairs with the same separations at $z=0.5$. 
     
-    In addition, the spread of times until merger and separations is smaller at higher redshift. 
-    The spread of merger timescales at $z=1$ goes from $0-8\,\Gyr$, while pairs at $z=4$ have merger timescales between $0-3\,\Gyr$. 
+    In addition, the spread of times until merger and separations is smaller at higher redshift, for both low- and high-mass pairs. 
+    The spread of merger timescales for low-mass pairs at $z=1$ goes from $0-8\,\Gyr$, while pairs at $z=4$ have merger timescales between $0-3\,\Gyr$. 
     Likewise, the spread of separations at $z=1$ is $0-200\kpc$, but at $z=4$ the spread is smaller, between $10-125\kpc$. 
-    This is due to the growth of halos over time, such that more pairs are identified at low redshifts where the virial radius of FoF groups is larger. 
-    
-    Likewise, Fig.~\ref{fig:timevssep-high} presents the distribution for high-mass pairs.
-    The trends between merger timescale and separation are roughly the same as low-mass pairs, with a positive correlation between the two parameters that decreases in slope from low redshift to high redshift. 
     The high-mass pairs also have a larger spread in the distribution of merger timescales and separations at low redshift than at higher redshift.
-    This is once again caused by the change in the FoF halo size over time. 
+    This is due to the growth of halos over time, such that more pairs are identified at low redshifts where the virial radius of FoF groups is larger. 
     
     % 
     \input{table-septime.tex}
@@ -462,8 +448,6 @@ Note that the merger fraction defined here is a measure of the fraction of isola
     First, we consider the pairs sample as a whole, and quantify the median merger timescale for all low- and high-mass pairs that are post-infall and pre-merger for $z=0-6$. 
     We will then consider two different sets of separation criteria to create separation-selected subsamples.
     Since pair samples are typically picked via separation criteria, in both simulations and observations, we study the impact of different separation-based selection criteria on inferred merger timescales.
-    
-    Each merging orbit is defined to start at first infall, and 
     
 
 
@@ -581,7 +565,7 @@ Note that the merger fraction defined here is a measure of the fraction of isola
 % ##################
 % Discussion section
 \section{Discussion} \label{sec:discussion}
-    We have calculated the merger timescales, or time until merger, for a sample of low-mass and high-mass pairs that have experienced first infall but not yet merged, to ensure that they are physically collocated.
+    We have calculated the merger timescales, or time until merger, for a sample of low-mass and high-mass pairs that have experienced first infall and merge before $z=0$ to ensure that they are physically collocated.
     In this section, we will explore the implications and broader impacts of our findings, and put our study in context with previous work. 
     %In Sec.~\ref{}, etc...
     
