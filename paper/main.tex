@@ -437,14 +437,14 @@ For example, a pair that passes the \chambe{} selection criteria only at $z=1$ w
         
         \begin{figure}[tb]
             \centering
-            \includegraphics[width=\columnwidth]{plots/bet-on-it/8_timescale_mod.png}
+            \includegraphics[width=\columnwidth]{plots/bet-on-it/8_timescale.png}
             \caption{The median merger timescale as a function of redshift for low-mass (green) and high-mass (pink) pairs in our merger sample. 
             Shaded regions represent the 1st and 3rd quartile spread on the median. 
             % 
             The thick dotted black line at low redshifts shows the time to $z=0$ (the lookback time) as a function of redshift, which sets the upper bound for the merger timescale that a merging pair can have. 
-            The thin black line shows the Hubble time as a function of redshift multiplied by a constant $XX$, which approximates the median time until merger from $z=6$ to $z\sim1$.
+            The thin black line shows the Hubble time as a function of redshift multiplied by a constant $\beta=0.35$, which approximates the median time until merger from $z=6$ to $z\sim1$.
             %
-            The median time until merger is similar for low-mass and high-mass pairs, and rises from $z=6$ to a peak at $z\sim0.75$, then decreases to $z=0$.\kc{update}}
+            The median time until merger is similar for low-mass and high-mass pairs, and rises from $z=6$ to a peak at $z\sim0.75$, then decreases to $z=0$.}
             \label{fig:timescales}
         \end{figure}
     
@@ -489,7 +489,7 @@ For example, a pair that passes the \chambe{} selection criteria only at $z=1$ w
         assuming that there is no (or weak) redshift dependence of the distribution of orbital parameters.
         Thus, the merger timescale is expected to scale with the Hubble time at a given redshift. 
         
-        In Fig.~\ref{fig:timescales}, the black dashed line shows the Hubble time $1/H(z)$ multiplied by XXX. 
+        In Fig.~\ref{fig:timescales}, the black dashed line shows the Hubble time $1/H(z)$ multiplied by $\beta=0.35$. 
         We did not perform a fit for this multiplicative constant, since we are interested in investigating the behavior of the merger timescale as a function of redshift rather than the specific values of the merger timescale. 
         The redshift evolution of our median merger timescales is consistent with the scaling with $1/H(z)$ between $z=\sim1-6$.\footnote{$H(z)$ is calculated using the same cosmology as the TNG100 simulation, from~\citet{Planck2018}. Specifically, $\Omega_M=0.31$ and $\Omega_{\Lambda}=0.69$.}
         
@@ -545,13 +545,12 @@ For example, a pair that passes the \chambe{} selection criteria only at $z=1$ w
         High-mass pairs tend to have higher separations than low-mass pairs, as shown in Sec.~\ref{sec:results-timevsep}, due to the larger size of the high-mass subhalos. 
     \begin{figure*}[htb]
         \centering
-        \includegraphics[width=\textwidth]{plots/bet-on-it/3_time_til_merger.png}
+        \includegraphics[width=\textwidth]{plots/bet-on-it/8_timescale_sepcut.png}
         \caption{(Top) The median merger timescale as a function of redshift for low-mass (green) and high-mass (pink) pairs with 3D physical separations greater than $10\,\kpc$ and less than $50,70,100,150,200,\mbox{and }300\,\kpc$ from left to right. 
         (Bottom) The median time until merger as a function of redshift for pairs with physical separations greater than $10\,\kpc$ and less than $0.25, 0.5, 1, 1.5, 2,\mbox{and }2.5\,\Rvir$ from left to right. 
         % 
-        The thin black line is the same as shown in Fig.~\ref{fig:timescales}, and goes as the Hubble time $1/H(z)$.
+        The thin black line is the same as shown in Fig.~\ref{fig:timescales}, and goes as the Hubble time $1/H(z)$ multiplied by 0.35 (see Sec.~\ref{sec:results-timevredshift} for additional details).
         The time until merger increases from $z=4$ to $z\sim0.5-0.75$, at which point the time until merger decreases to zero since all low redshift mergers must have short merger timescales to merge before the end of the simulation at $z=0$. 
-        \kc{H(z), "merger timescale"}
         }
         \label{fig:timescales-sep}
     \end{figure*}  
