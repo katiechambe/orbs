@@ -24,13 +24,13 @@ def save_orbitdata(snapshot):
     full_snaps = np.arange(0,100,1)
     little_h = 0.6774
     
-    if os.path.exists(f"{paths.path_data}hail-mary/orbitdata_{snapshot}.hdf5"):
-        print ("file already exists")
+    if os.path.exists(f"{paths.path_data}big-bad/massive_orbitdata_{snapshot}.hdf5"):
+        print("file already exists")
     
     else:
         # ----------------------------------------------------
         # import pair data
-        f = h5py.File(f"{paths.path_data}hail-mary/lowmass_{snapshot}.hdf5", 'r')
+        f = h5py.File(f"{paths.path_data}big-bad/highmass_{snapshot}.hdf5", 'r')
         pairs = {}
         for key, val in f.items():
             if key != "Header":
@@ -40,7 +40,7 @@ def save_orbitdata(snapshot):
 
         # ----------------------------------------------------
         # import snapshot data to convert comoving units
-        snapdata = h5py.File(f"{paths.path_data}hail-mary/snapshot_data.hdf5","r")
+        snapdata = h5py.File(f"{paths.path_data}big-bad/snapshot_data.hdf5","r")
         snapdata_dict={}
         for key,val in snapdata.items():
             snapdata_dict[key] = np.array(val)
@@ -74,6 +74,7 @@ def save_orbitdata(snapshot):
         rvir = np.zeros((numpairs, len(full_snaps)))
         pos1, pos2 = np.zeros((2, numpairs, len(full_snaps), 3))
         vel1, vel2 = np.zeros((2, numpairs, len(full_snaps), 3))
+
 
         for ind in range(numpairs):
             # ----------------------------------------------------
@@ -159,7 +160,7 @@ def save_orbitdata(snapshot):
                     subpos2 = tree_secondary['SubhaloPos'][loc2] # comov
                     comoving_dist = np.linalg.norm(vector(subpos1,subpos2,75000))
                     seps_comov[ind][snap] = comoving_dist
-                    seps[ind][snap]=comoving_dist*(scale)/little_h
+                    seps[ind][snap] = comoving_dist*(scale)/little_h
                     pos1[ind][snap] = subpos1
                     pos2[ind][snap] = subpos2
                     
@@ -174,7 +175,7 @@ def save_orbitdata(snapshot):
                     vel1[ind][snap] = tree_primary['SubhaloVel'][loc1]
                     vel2[ind][snap] = tree_secondary['SubhaloVel'][loc2]
                     rel_vel = np.linalg.norm(vel1[ind][snap]-vel2[ind][snap])
-                    vels[ind][snap]=rel_vel
+                    vels[ind][snap] = rel_vel
                     
             infall_snap[ind] = np.where(group_flag[ind]==True)[0][0]
             infall_redshift[ind] = snapdata_dict['Redshift'][infall_snap[ind]]
@@ -216,7 +217,7 @@ def save_orbitdata(snapshot):
                       "SubhaloVel1":vel1,
                       "SubhaloVel2":vel2}
         
-        f = h5py.File(f"{paths.path_data}hail-mary/orbitdata_{snapshot}.hdf5", 'w')
+        f = h5py.File(f"{paths.path_data}big-bad/massive_orbitdata_{snapshot}.hdf5", 'w')
 
         info_dict = {"Redshift":"Redshift of snapshot",
                       "Scale":"Scale of snapshot",
