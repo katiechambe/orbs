@@ -33,11 +33,13 @@
 #
 # Mark Vogelsberger (mvogelsb@cfa.harvard.edu)
 import sys
-import hdf5lib_param
+# import hdf5lib_param
+
 
 #try:
 if True:
-    hdf5libname = hdf5lib_param.libname
+    # hdf5libname = hdf5lib_param.libname
+    hdf5libname = "h5py"
     if hdf5libname == "tables":
         import tables
         use_tables=True
